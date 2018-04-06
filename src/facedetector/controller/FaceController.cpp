@@ -23,7 +23,10 @@ void FaceController::update()
 
 void FaceController::newPersonAppear(PersonPtr person)
 {
-	facePlusPlusDetector->processImage("face.jpg");
+	//facePlusPlusDetector->processImage("face.jpg");
+	ofImage faceImage;
+	faceImage.load("face.jpg");
+	facePlusPlusDetector->processImage(faceImage);
 }
 
 void FaceController::onFaceDetect(PersonPtr person)

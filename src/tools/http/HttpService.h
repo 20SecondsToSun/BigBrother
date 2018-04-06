@@ -35,6 +35,7 @@ namespace bbrother
 		void makeRequest(const string& Url,
 			HTTPRequestMethod requestMethod,
 			const vector<RequestParam>& requestParams,
+			const vector<HeaderParam>& headerParams,
 			const RequestParam& fileParam);
 
 		ofEvent<const string&> ServerResponseEvent;

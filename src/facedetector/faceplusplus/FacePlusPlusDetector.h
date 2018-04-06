@@ -19,6 +19,7 @@ namespace bbrother
 		virtual void init(ConfigPtr config) override;
 		virtual void update() override;	
 		virtual void processImage(const string& path) override;
+		virtual void processImage(const ofImage& path) override;
 
 	private:
 		Face face;

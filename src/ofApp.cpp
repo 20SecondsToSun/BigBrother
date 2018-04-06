@@ -106,6 +106,12 @@ void ofApp::onConfigLoadComplete()
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Config load complete");
 
 	faceController->init(config);
+	PersonPtr person;
+	//person.rectangleImage = trackerPerson.image;
+	//person.id = generateID();
+
+	//screenController->newPersonAppear(person);
+	faceController->newPersonAppear(person);
 
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Start application...");
 }

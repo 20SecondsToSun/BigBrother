@@ -5,6 +5,7 @@ using namespace bbrother;
 JsonParserFaceplusPlus::JsonParserFaceplusPlus(const string& json):
 	isParseSuccess(false)
 {
+	cout << json << endl;
 	isValid = reader.parse(json, root);
 	currentFace = FacePtr(new Face());
 }

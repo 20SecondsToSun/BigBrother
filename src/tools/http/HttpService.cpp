@@ -32,7 +32,8 @@ void HttpService::makeRequest(const string& Url,
 
 void HttpService::makeRequest(const string& Url,
 	HTTPRequestMethod requestMethod,
-	const vector<RequestParam>& requestParams,
+	const vector<RequestParam>& requestParams,	
+	const vector<HeaderParam>& headerParams,
 	const RequestParam& fileParam)
 {
 	ofxHttpForm form;
@@ -43,7 +44,6 @@ void HttpService::makeRequest(const string& Url,
 	{
 		form.addFormField(param.key, param.value);
 	}	
-
 	form.addFile(fileParam.key, fileParam.value);
 	
 	httpUtils.addForm(form);

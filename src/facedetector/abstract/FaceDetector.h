@@ -24,6 +24,7 @@ namespace bbrother
 		virtual void init(ConfigPtr config) = 0;
 		virtual void update() = 0;
 		virtual void processImage(const string& path) = 0;
+		virtual void processImage(const ofImage& path) = 0;		
 		virtual ~FaceDetector();				
 
 		void setPhotoProcessStatus(PhotoProcessStatus status);		
