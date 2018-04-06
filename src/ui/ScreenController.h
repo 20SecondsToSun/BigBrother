@@ -2,6 +2,7 @@
 #include "ofMain.h"
 #include "screens/BaseScreen.h"
 #include "../person/Person.h"
+#include "../config/Config.h"
 
 namespace bbrother
 {
@@ -21,6 +22,8 @@ namespace bbrother
 		ScreenController();
 		virtual void update();
 		virtual void draw();
+
+		virtual void init(ConfigPtr config);
 
 		void newPersonAppear(PersonPtr person);
 		virtual ~ScreenController();

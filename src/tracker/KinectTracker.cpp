@@ -10,6 +10,11 @@ KinectTracker::KinectTracker()
 	//opencv analyzer
 }
 
+void KinectTracker::init(ConfigPtr config)
+{
+
+}
+
 void KinectTracker::update()
 {
 

@@ -7,6 +7,7 @@
 #include "facedetector/controller/FaceController.h"
 #include "family/FamilyBaseRequestHandler.h"
 #include "person/Person.h"
+#include "person/PersonController.h"
 
 #define DEBUG_VERSION//
 
@@ -25,6 +26,8 @@ private:
 	bbrother::FaceDetectorPtr facedetector;
 	bbrother::ScreenControllerPtr screenController;
 	bbrother::FaceControllerPtr faceController;
+	bbrother::PersonControllerPtr personController;
+	
 
 #ifdef DEBUG_VERSION
 	bbrother::TestInterfaceLayoutPtr testKinectInterfaceLayout;
@@ -34,7 +37,7 @@ private:
 	void onConfigLoadComplete();
 	void onInterfaceEvent(bbrother::InterfaceEventType& Event);
 
-	void onNewPersonAppear(bbrother::TrackerPerson& trackerPerson);
+	void onNewPersonAppear(bbrother::Tracker::TrackerPerson& trackerPerson);
 
 	void onPersonFaceDetect(bbrother::PersonPtr& person);
 	void onPersonFaceNotDetect(bbrother::PersonPtr& person);

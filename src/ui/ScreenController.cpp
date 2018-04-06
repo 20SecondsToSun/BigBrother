@@ -14,6 +14,11 @@ void ScreenController::newPersonAppear(PersonPtr person)
 	
 }
 
+void ScreenController::init(ConfigPtr config)
+{
+
+}
+
 void ScreenController::update()
 {
 	currentScreen->update();

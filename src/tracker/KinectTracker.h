@@ -13,6 +13,9 @@ namespace bbrother
 		virtual void update() override;
 		virtual void draw() override;	
 
+		virtual void init(ConfigPtr config) override;
+
+
 		virtual void start() override;
 		virtual void stop() override;
 

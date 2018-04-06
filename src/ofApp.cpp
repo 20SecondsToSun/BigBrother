@@ -53,12 +53,9 @@ void ofApp::setup()
 	config->load();
 }
 
-void ofApp::onNewPersonAppear(TrackerPerson& trackerPerson)
+void ofApp::onNewPersonAppear(Tracker::TrackerPerson& trackerPerson)
 {
-	PersonPtr person;
-	//person.rectangleImage = trackerPerson.image;
-	//person.id = generateID();
-
+	PersonPtr person = personController->createNewPerson(trackerPerson);
 	screenController->newPersonAppear(person);
 	faceController->newPersonAppear(person);	
 }
@@ -102,16 +99,11 @@ void ofApp::onFaceServiceError()
 void ofApp::onConfigLoadComplete()
 {
 	// entry point....
-
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Config load complete");
 
+	tracker->init(config);
 	faceController->init(config);
-	PersonPtr person;
-	//person.rectangleImage = trackerPerson.image;
-	//person.id = generateID();
-
-	//screenController->newPersonAppear(person);
-	faceController->newPersonAppear(person);
+	screenController->init(config);	
 
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Start application...");
 }
@@ -139,9 +131,9 @@ void ofApp::onInterfaceEvent(bbrother::InterfaceEventType& Event)
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	//tracker->update();
-	//mainUI->update();
+	tracker->update();
 	faceController->update();
+	screenController->update();	
 
 #ifdef DEBUG_VERSION
 	//testKinectInterfaceLayout->update();
@@ -153,7 +145,8 @@ void ofApp::update()
 void ofApp::draw()
 {
 	//tracker->draw();
-	//mainUI->draw();
+	//faceController->draw();
+	screenController->draw();
 
 #ifdef DEBUG_VERSION
 	// on top level
