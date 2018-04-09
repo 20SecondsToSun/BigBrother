@@ -8,21 +8,22 @@ namespace bbrother
 	class Config
 	{
 	public:
-		class ApiConfig
+		enum apiField
 		{
-		public:
-			static const std::vector<std::string> API_FIELD_NAMES;
+			FACEPROTOCOL,
+			FACEHOST,
+			FACEMETHOD,
+			APIKEY,
+			APISECRET
+		};
 
-			ApiConfig();
-
-			const std::string& getValue(const std::string& fieldName);
-
-			void setValue(const std::string& fieldName, const std::string& value);
-
-			~ApiConfig();
-
-		private:
-			std::map<std::string, std::string> data;
+		struct ApiConfig
+		{
+			std::string faceProtocol;
+			std::string faceHost;
+			std::string faceMethod;
+			std::string apiKey;
+			std::string apiSecret;
 		};
 
 		Config();
@@ -31,6 +32,10 @@ namespace bbrother
 		ofEvent<void> loadErrorEvent;
 		
 		virtual void load();
+
+		virtual const std::string& getApiField(apiField fieldName);
+
+		virtual void setApiField(apiField fieldName, const std::string& value);
 
 		virtual ~Config();
 

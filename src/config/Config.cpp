@@ -4,34 +4,10 @@
 using namespace bbrother;
 
 const std::string Config::filePath = "config.json";
-const std::vector<std::string> Config::ApiConfig::API_FIELD_NAMES = {
-	"FaceProtocol","FaceHost", "FaceMethod", "APIKey", "APISecret" };
-
-Config::ApiConfig::ApiConfig()
-{
-	for (const std::string& fieldName : API_FIELD_NAMES)
-	{
-		data.insert(std::pair<std::string, std::string>(fieldName, ""));
-	}
-}
-
-const std::string& Config::ApiConfig::getValue(const std::string& fieldName)
-{
-	return data.at(fieldName);
-}
-
-void Config::ApiConfig::setValue(const std::string& fieldName, const std::string& value)
-{
-	data.at(fieldName) = value;
-}
-
-Config::ApiConfig::~ApiConfig()
-{
-
-}
 
 Config::Config()
 {
+	apiData = {};
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Config init");	
 }
 
@@ -44,18 +20,62 @@ void Config::load()
 		ofNotifyEvent(loadErrorEvent, this);
 		ofLog(ofLogLevel::OF_LOG_ERROR, "Failed to open config");
 	}
-
-	for (const std::string& fieldName : Config::ApiConfig::API_FIELD_NAMES)
+	else
 	{
-		std::string& value = json["FacePlusPlusApi"][fieldName].asString();
-		apiData.setValue(fieldName, value);
+		apiData.faceProtocol = json["FacePlusPlusApi"]["FaceProtocol"].asString();
+		apiData.faceHost = json["FacePlusPlusApi"]["FaceHost"].asString();
+		apiData.faceMethod = json["FacePlusPlusApi"]["FaceMethod"].asString();
+		apiData.apiKey = json["FacePlusPlusApi"]["APIKey"].asString();
+		apiData.apiSecret = json["FacePlusPlusApi"]["APISecret"].asString();
 	}
-	
+
 	ofNotifyEvent(loadCompleteEvent, this);
+}
+
+const std::string& Config::getApiField(apiField fieldName)
+{
+	switch (fieldName)
+	{
+	case FACEPROTOCOL:
+		return apiData.faceProtocol;
+	case FACEHOST:
+		return apiData.faceHost;
+	case FACEMETHOD:
+		return apiData.faceMethod;
+	case APIKEY:
+		return apiData.apiKey;
+	case APISECRET:
+		return apiData.apiSecret;
+	default:
+		break;
+	}
+}
+
+void Config::setApiField(apiField fieldName, const std::string& value)
+{
+	switch (fieldName)
+	{
+	case FACEPROTOCOL:
+		apiData.faceProtocol = value;
+		break;
+	case FACEHOST:
+		apiData.faceHost = value;
+		break;
+	case FACEMETHOD:
+		apiData.faceMethod = value;
+		break;
+	case APIKEY:
+		apiData.apiKey = value;
+		break;
+	case APISECRET:
+		apiData.apiSecret = value;
+		break;
+	default:
+		break;
+	}
 }
 
 Config::~Config()
 {
-
 }
 
