@@ -4,35 +4,39 @@ using namespace bbrother;
 
 WaitScreen::WaitScreen()
 {
+	mTimeline = ofxCinderTimeline::Timeline::create();
+	mTimeline->stepTo(ofGetElapsedTimef());
+	font.load("ofxbraitsch/fonts/Starjout.ttf", 64);
+	location = ofPoint(ofGetWidth() / 2, ofGetHeight() / 2);
+	movetimeline().appendTo(&location, location.value() - ofPoint(30, 0), location.value() + ofPoint(30, 0), 2.0f, ofxCinderTimeline::EaseInOutSine()).pingPong().loop();
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Wait Screen init");
+}
+
+
+void WaitScreen::show()
+{
+	timeline().apply(&visibility, 0.0f, 255.0f, 2.0f, ofxCinderTimeline::EaseInOutCubic()).finishFn(std::bind([this](){ofNotifyEvent(BaseScreen::showAnimationcomplete, this); }));
+}
+
+void WaitScreen::hide()
+{
+	timeline().apply(&visibility, 255.0f, 0.0f, 1.0f, ofxCinderTimeline::EaseInOutCubic()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::hideAnimationcomplete, this); }));
 }
 
 void WaitScreen::update()
 {
-	
+	timeline().stepTo(ofGetElapsedTimef());
 }
 
 void WaitScreen::draw()
 {
-	/*ofSetColor(ofFloatColor(1, 0, 0));
-
-	float i = 0;
-	ofPolyline line;
-
-	while (i < TWO_PI)
-	{
-		float r = (2 - 2 * sin(i) + sin(i)*sqrt(abs(cos(i))) / (sin(i) + 1.4)) * -80;
-		float x = ofGetWidth() / 2 + cos(i) * r;
-		float y = ofGetHeight() / 2 + sin(i) * r;
-		line.addVertex(ofVec2f(x, y));
-		i += 0.005*HALF_PI*0.5;
-	}
-	line.close();
-	line.draw();
-	*/
-	string msg = "WaitScreen";
-	font.drawString(msg, ofGetWidth() / 2 - msg.size() * 36 / 2, ofGetHeight() / 2);
+	ofEnableAlphaBlending();
+	ofSetColor(255, 255, 255, visibility.value());
+	std::string msg = "Bored..";
+	font.drawString(msg, location.value().x - msg.size() * 32 / 2, location.value().y);
+	ofDisableAlphaBlending();
 }
+
 
 WaitScreen::~WaitScreen()
 {

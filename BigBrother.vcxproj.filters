@@ -34,12 +34,6 @@
     <ClCompile Include="src\tools\http\ofxHttpUtils.cpp">
       <Filter>src\tools\http</Filter>
     </ClCompile>
-    <ClCompile Include="src\ui\screens\DetectScreen.cpp">
-      <Filter>src\ui\screens</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ui\screens\ResultScreen.cpp">
-      <Filter>src\ui\screens</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\ofxDatGui.cpp">
       <Filter>addons\ofxDatGui-master\src</Filter>
     </ClCompile>
@@ -70,6 +64,33 @@
     <ClCompile Include="src\interface\TestMainUIInterfaceLayout.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\CinderMath.cpp">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\Timeline.cpp">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\TimelineItem.cpp">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\Tween.cpp">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\ScreenController.cpp">
+      <Filter>src\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\containers\BaseContainer.cpp">
+      <Filter>src\ui\containers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\cards\BaseCard.cpp">
+      <Filter>src\ui\cards</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\animation\Cloud.cpp">
+      <Filter>src\ui\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\screens\WorkScreen.cpp">
+      <Filter>src\ui\screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -89,9 +110,6 @@
     </Filter>
     <Filter Include="src\ui">
       <UniqueIdentifier>{34ca6391-ba3d-4a2b-9eda-c89cbe58bd13}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\ui\screens">
-      <UniqueIdentifier>{f15650be-88eb-4de6-9f17-98ba5ce7cae4}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\person">
       <UniqueIdentifier>{5984e83c-5d0e-4f1a-952c-295a5759604a}</UniqueIdentifier>
@@ -150,6 +168,42 @@
     <Filter Include="addons\ofxJSON-master\libs\jsoncpp\src">
       <UniqueIdentifier>{a2ef1b4e-8367-4ff6-ba63-2f5251f78638}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master">
+      <UniqueIdentifier>{05004633-cba7-47fc-b861-7cad08936d0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\src">
+      <UniqueIdentifier>{9f9acdd4-610a-4819-810b-ab15777c9f77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\libs">
+      <UniqueIdentifier>{ccea9b0b-3dae-46ec-ab45-a03a4a57d192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder">
+      <UniqueIdentifier>{130652c7-3734-4c5b-b08e-954e13c926a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\include">
+      <UniqueIdentifier>{b483e79f-7ea2-4623-8b16-0a7b874aa548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\include\cinder">
+      <UniqueIdentifier>{dbd6e449-a535-47ad-afce-0b45f87fec52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\src">
+      <UniqueIdentifier>{cc9e7973-c473-49a4-93c8-79998f9ec7a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\src\cinder">
+      <UniqueIdentifier>{8bc25cb7-38a3-4517-a408-b10bbd1f7545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui\screens">
+      <UniqueIdentifier>{f15650be-88eb-4de6-9f17-98ba5ce7cae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui\cards">
+      <UniqueIdentifier>{59de6720-bea6-49cf-844f-478f022b6a5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui\containers">
+      <UniqueIdentifier>{d228f1ff-8bfb-4031-97a0-fd67ccea4cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ui\animation">
+      <UniqueIdentifier>{bedc2f58-a3d0-4848-8772-941cd85a2cf8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
@@ -190,12 +244,6 @@
     </ClInclude>
     <ClInclude Include="src\tools\http\ofxHttpUtils.h">
       <Filter>src\tools\http</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\screens\DetectScreen.h">
-      <Filter>src\ui\screens</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ui\screens\ResultScreen.h">
-      <Filter>src\ui\screens</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\ofxDatGui.h">
       <Filter>addons\ofxDatGui-master\src</Filter>
@@ -280,6 +328,45 @@
     </ClInclude>
     <ClInclude Include="src\ui\MainAppUIHolder.h">
       <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\src\ofxCinderTimeline.h">
+      <Filter>addons\ofxCinderTimeline-master\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Cinder.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\CinderMath.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Easing.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Function.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Timeline.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\TimelineItem.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Tween.h">
+      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\ScreenController.h">
+      <Filter>src\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\containers\BaseContainer.h">
+      <Filter>src\ui\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\cards\BaseCard.h">
+      <Filter>src\ui\cards</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\animation\Cloud.h">
+      <Filter>src\ui\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\screens\WorkScreen.h">
+      <Filter>src\ui\screens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

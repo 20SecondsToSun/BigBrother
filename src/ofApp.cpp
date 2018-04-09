@@ -14,15 +14,15 @@ void ofApp::setup()
 	ofAddListener(config->loadCompleteEvent, this, &ofApp::onConfigLoadComplete);
 
 #ifdef DEBUG_VERSION	
-	testKinectInterfaceLayout = TestInterfaceLayoutPtr(new TestKinectInterfaceLayout());
-	testKinectInterfaceLayout->setPosition(ofPoint(20, 40));
-	testKinectInterfaceLayout->setVisibility(true);
-	ofAddListener(testKinectInterfaceLayout->InterfaceEvent, this, &ofApp::onInterfaceEvent);
+	//testKinectInterfaceLayout = TestInterfaceLayoutPtr(new TestKinectInterfaceLayout());
+	//testKinectInterfaceLayout->setPosition(ofPoint(20, 40));
+	//testKinectInterfaceLayout->setVisibility(true);
+	//ofAddListener(testKinectInterfaceLayout->InterfaceEvent, this, &ofApp::onInterfaceEvent);
 
 	testMainUIInterfaceLayout = TestInterfaceLayoutPtr(new TestMainUIInterfaceLayout());
 	testMainUIInterfaceLayout->setPosition(ofPoint(400, 40));
 	testMainUIInterfaceLayout->setVisibility(true);
-	ofAddListener(testMainUIInterfaceLayout->InterfaceEvent, this, &ofApp::onInterfaceEvent);
+	//ofAddListener(testMainUIInterfaceLayout->InterfaceEvent, this, &ofApp::onInterfaceEvent);
 
 #endif
 
@@ -34,6 +34,7 @@ void ofApp::setup()
 	//tcpController = TcpControllerPtr(new TcpController());
 
 	config->load();
+	ofAddListener(testMainUIInterfaceLayout->InterfaceEvent, mainUI.get(), &MainAppUIHolder::onInterfaceEvent);
 }
 
 //--------------------------------------------------------------
@@ -70,12 +71,12 @@ void ofApp::onInterfaceEvent(bbrother::InterfaceEventType& Event)
 
 	case InterfaceEventType::ShowDetectScreen:
 		ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Detect Screen...");
-		mainUI->setter(ScreenState::Detect);
+		//mainUI->setter(ScreenState::Detect);
 		break;
 
 	case InterfaceEventType::ShowResultScreen:
 		ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Result Screen...");
-		mainUI->setter(ScreenState::Result);
+		//mainUI->setter(ScreenState::Result);
 		break;
 	}
 }
@@ -87,7 +88,7 @@ void ofApp::update()
 	mainUI->update();
 
 #ifdef DEBUG_VERSION
-	testKinectInterfaceLayout->update();
+	//testKinectInterfaceLayout->update();
 	testMainUIInterfaceLayout->update();
 #endif
 }
@@ -100,7 +101,7 @@ void ofApp::draw()
 
 #ifdef DEBUG_VERSION
 	// on top level
-	testKinectInterfaceLayout->draw();
+	//testKinectInterfaceLayout->draw();
 	testMainUIInterfaceLayout->draw();
 #endif
 }

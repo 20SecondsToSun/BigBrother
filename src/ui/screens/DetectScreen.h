@@ -10,11 +10,14 @@ namespace bbrother
 	{
 	public:
 		DetectScreen();
-		virtual void update();
-		virtual void draw();
+		virtual void show() override; //показываем через альфу текст("Bored.." пока)
+		virtual void hide() override; //убираем через альфу текст.
+		virtual void update() override;
+		virtual void draw() override;
 
 		virtual ~DetectScreen();
 	private:
 		ofImage image;
+		ofTrueTypeFont font;
 	};
 }

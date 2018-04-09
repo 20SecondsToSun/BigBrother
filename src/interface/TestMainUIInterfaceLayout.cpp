@@ -6,15 +6,15 @@ TestMainUIInterfaceLayout::TestMainUIInterfaceLayout()
 {
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "IFish InterfaceLayout init");
 	
-	screen1btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Wait Screen"));
+	screen1btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Wait"));
 	screen1btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen1ButtonClicked);
 	components.push_back(screen1btn);
 
-	screen2btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Detect Screen"));
+	screen2btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Detect"));
 	screen2btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen2ButtonClicked);
 	components.push_back(screen2btn);
 
-	screen3btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Result Screen"));
+	screen3btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Recognise"));
 	screen3btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen3ButtonClicked);
 	components.push_back(screen3btn);
 

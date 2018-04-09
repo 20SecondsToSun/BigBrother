@@ -19,7 +19,11 @@ namespace bbrother
 	{
 	public:
 		Person();
+		Person(int _id);
 		virtual ~Person();
+		int getId() {
+			return id;
+		}
 
 	private:
 		int id;

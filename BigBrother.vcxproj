@@ -96,10 +96,10 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <CompileAs>CompileAsCpp</CompileAs>
-      <AdditionalIncludeDirectories>C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\components;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\core;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\themes;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\src;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include\json;F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;
-F:\openFrameworks\root\addons\ofxJSON-master\src;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\components;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\core;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\themes;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\src;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include\json;F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;F:\openFrameworks\root\addons\ofxJSON-master\src;F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\src;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include\cinder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -118,10 +118,10 @@ F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(Additio
       <WarningLevel>Level3</WarningLevel>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;
-F:\openFrameworks\root\addons\ofxJSON-master\src;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\src;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include\cinder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,10 +139,10 @@ F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(Additio
       <WarningLevel>Level3</WarningLevel>
       <CompileAs>CompileAsCpp</CompileAs>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\components;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\core;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\themes;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\src;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include\json;F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;
-F:\openFrameworks\root\addons\ofxJSON-master\src;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\components;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\core;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\themes;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\src;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include\json;F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;F:\openFrameworks\root\addons\ofxJSON-master\src;F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\src;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include\cinder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -162,10 +162,10 @@ F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(Additio
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <CompileAs>CompileAsCpp</CompileAs>
-      <AdditionalIncludeDirectories>C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\components;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\core;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\themes;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\src;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include\json;F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;
-F:\openFrameworks\root\addons\ofxJSON-master\src;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;
-F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\components;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\core;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\libs\ofxSmartFont;C:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxDatGui\src\themes;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\src;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include;c:\projects\Openframeworks\of_v0.9.8_vs_release\addons\ofxJSON\libs\jsoncpp\include\json;F:\openFrameworks\root\addons\ofxDatGui-master\src;F:\openFrameworks\root\addons\ofxDatGui-master\src\components;F:\openFrameworks\root\addons\ofxDatGui-master\src\core;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs;F:\openFrameworks\root\addons\ofxDatGui-master\src\libs\ofxSmartFont;F:\openFrameworks\root\addons\ofxDatGui-master\src\themes;F:\openFrameworks\root\addons\ofxJSON-master\src;F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include;F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\src;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include;
+F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include\cinder;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -179,6 +179,10 @@ F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(Additio
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\CinderMath.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\Timeline.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\TimelineItem.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\Tween.cpp" />
     <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\core\ofxDatGuiComponent.cpp" />
     <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\libs\ofxSmartFont\ofxSmartFont.cpp" />
     <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\ofxDatGui.cpp" />
@@ -197,13 +201,24 @@ F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(Additio
     <ClCompile Include="src\tools\http\ofxHttpUtils.cpp" />
     <ClCompile Include="src\tracker\KinectTracker.cpp" />
     <ClCompile Include="src\tracker\Tracker.cpp" />
+    <ClCompile Include="src\ui\animation\Cloud.cpp" />
+    <ClCompile Include="src\ui\cards\BaseCard.cpp" />
+    <ClCompile Include="src\ui\containers\BaseContainer.cpp" />
     <ClCompile Include="src\ui\MainAppUIHolder.cpp" />
+    <ClCompile Include="src\ui\ScreenController.cpp" />
     <ClCompile Include="src\ui\screens\BaseScreen.cpp" />
-    <ClCompile Include="src\ui\screens\DetectScreen.cpp" />
-    <ClCompile Include="src\ui\screens\ResultScreen.cpp" />
     <ClCompile Include="src\ui\screens\WaitScreen.cpp" />
+    <ClCompile Include="src\ui\screens\WorkScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Cinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\CinderMath.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Easing.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Function.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Timeline.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\TimelineItem.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Tween.h" />
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\src\ofxCinderTimeline.h" />
     <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGui2dPad.h" />
     <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiButton.h" />
     <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiColorPicker.h" />
@@ -242,11 +257,14 @@ F:\openFrameworks\root\addons\ofxJSON-master\libs\jsoncpp\include\json;%(Additio
     <ClInclude Include="src\tools\http\ofxHttpUtils.h" />
     <ClInclude Include="src\tracker\KinectTracker.h" />
     <ClInclude Include="src\tracker\Tracker.h" />
+    <ClInclude Include="src\ui\animation\Cloud.h" />
+    <ClInclude Include="src\ui\cards\BaseCard.h" />
+    <ClInclude Include="src\ui\containers\BaseContainer.h" />
     <ClInclude Include="src\ui\MainAppUIHolder.h" />
+    <ClInclude Include="src\ui\ScreenController.h" />
     <ClInclude Include="src\ui\screens\BaseScreen.h" />
-    <ClInclude Include="src\ui\screens\DetectScreen.h" />
-    <ClInclude Include="src\ui\screens\ResultScreen.h" />
     <ClInclude Include="src\ui\screens\WaitScreen.h" />
+    <ClInclude Include="src\ui\screens\WorkScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

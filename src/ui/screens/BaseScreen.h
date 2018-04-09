@@ -1,5 +1,6 @@
 #pragma once
 #include "ofMain.h"
+#include "ofxCinderTimeline.h"
 
 namespace bbrother
 {
@@ -9,11 +10,16 @@ namespace bbrother
 	{
 	public:
 		BaseScreen();
-		virtual void update();
-		virtual void draw();
+
+		ofEvent<void> showAnimationcomplete;
+		ofEvent<void> hideAnimationcomplete;
+
+		virtual void update() = 0;
+		virtual void draw() = 0;
+		virtual void show() = 0; //запускается стартовую анимацию появления всех компонентов экрана
+		virtual void hide() = 0; //запускается финальную анимацию всех компонентов экрана
 
 		virtual ~BaseScreen();
-		ofTrueTypeFont font;
 	};
 }
 
