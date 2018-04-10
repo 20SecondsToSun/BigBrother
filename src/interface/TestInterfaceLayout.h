@@ -1,7 +1,7 @@
 #pragma once
 #include "ofMain.h"
 #include "ofxDatGui.h"
-#include "../config/Config.h"
+#include "config/Config.h"
 
 namespace bbrother
 {

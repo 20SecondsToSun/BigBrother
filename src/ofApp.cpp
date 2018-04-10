@@ -1,10 +1,12 @@
 #include "ofApp.h"
 #include "config/Config.h"
-#include "debugUI/TestKinectInterfaceLayout.h"
-#include "debugUI/TestMainUIInterfaceLayout.h"
+#include "interface/TestKinectInterfaceLayout.h"
+#include "interface/TestMainUIInterfaceLayout.h"
 #include "tracker/KinectTracker.h"
 #include "facedetector/faceplusplus/FacePlusPlusDetector.h"
-#include "debugUI/TestFacePlusPlusInterfaceLayout.h"
+#include "interface/TestFacePlusPlusInterfaceLayout.h"
+#include "facedetector/faceplusplus/FaceDataBaseHandler.h"
+#include "facedetector/faceplusplus/FaceSetHandler.h"
 
 using namespace bbrother;
 
@@ -31,21 +33,34 @@ void ofApp::setup()
 	testMainUIInterfaceLayout->setVisibility(true);
 	testMainUIInterfaceLayout->setConfig( config );
 	ofAddListener(testMainUIInterfaceLayout->InterfaceEvent, this, &ofApp::onInterfaceEvent);
+	//FaceDataBaseHandler* handler = new FaceDataBaseHandler();
+	//std::cout << "SENT" << std::endl;
+	
+	TestFacePlusPlusInterfaceLayout* testPointer = dynamic_cast<TestFacePlusPlusInterfaceLayout*>( testMainUIInterfaceLayout.get() );
+	Face* res = testPointer->face_detector->ProcessImage( "c:\\test1.jpg" );
+	FaceSetHandler* handler = new FaceSetHandler();
+	std::cout << res->getToken() << std::endl;
+	handler->AddFaces( res->getToken() );
+	//handler->CreateUser( "Test", res->getToken() );
+	//handler->GetAll();
+	res = testPointer->face_detector->ProcessImage( "c:\\test2.jpg" );
+	std::cout << res->getToken() << std::endl;
+	handler->AddFaces( res->getToken() );
+
+	res = testPointer->face_detector->ProcessImage( "c:\\test4.jpg" );
+	std::cout << res->getToken() << std::endl;
+
+	//res->Print();
+	//FaceSetHandler* handler = new FaceSetHandler();
+	handler->Search( res );
+	//handler->Create();
+	//handler->AddFaces( res->getToken() );
+
 #endif
 
-	tracker = bbrother::TrackerPtr(new KinectTracker());
-	ofAddListener(tracker->newPersonAppear, this, &ofApp::onNewPersonAppear);
-
-	faceController = FaceControllerPtr(new FaceController());
-	ofAddListener(faceController->serviceError, this, &ofApp::onFaceServiceError);
-	ofAddListener(faceController->personFaceDetect, this, &ofApp::onPersonFaceDetect);
-	ofAddListener(faceController->personFaceNotDetect, this, &ofApp::onPersonFaceNotDetect);
-	ofAddListener(faceController->personFoundInFaceSet, this, &ofApp::onPersonFoundInFaceSet);
-	ofAddListener(faceController->personNotFoundInFaceSet, this, &ofApp::onPersonNotFoundInFaceSet);
-	ofAddListener(faceController->personFoundInFamilyBase, this, &ofApp::onPersonFoundInFamilyBase);
-	ofAddListener(faceController->personNotFoundInFamilyBase, this, &ofApp::onPersonNotFoundInFamilyBase);
-	
-	screenController = bbrother::ScreenControllerPtr(new ScreenController());
+	//tracker = bbrother::TrackerPtr(new KinectTracker());
+	facedetector = bbrother::FaceDetectorPtr(new FacePlusPlusDetector());
+	//mainUI = bbrother::MainAppUIHolderPtr(new MainAppUIHolder());
 
 	//printerWorker = bbrother::PrinterWorkerPtr(new PrinterWorker());	
 	//tcpController = TcpControllerPtr(new TcpController());
@@ -53,59 +68,12 @@ void ofApp::setup()
 	config->load();
 }
 
-void ofApp::onNewPersonAppear(TrackerPerson& trackerPerson)
-{
-	PersonPtr person;
-	//person.rectangleImage = trackerPerson.image;
-	//person.id = generateID();
-
-	screenController->newPersonAppear(person);
-	faceController->newPersonAppear(person);	
-}
 //--------------------------------------------------------------
-
-void ofApp::onPersonFaceDetect(PersonPtr& person)
-{
-
-}
-
-void ofApp::onPersonFaceNotDetect(PersonPtr& person)
-{
-
-}
-
-void ofApp::onPersonFoundInFaceSet(PersonPtr& person)
-{
-
-}
-
-void ofApp::onPersonNotFoundInFaceSet(PersonPtr& person)
-{
-
-}
-
-void ofApp::onPersonFoundInFamilyBase(PersonPtr& person)
-{
-
-}
-
-void ofApp::onPersonNotFoundInFamilyBase(PersonPtr& person)
-{
-
-}
-
-void ofApp::onFaceServiceError()
-{
-
-}
-
 void ofApp::onConfigLoadComplete()
 {
-	// entry point....
-
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Config load complete");
 
-	faceController->init(config);
+	facedetector->init(config);
 
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Start application...");
 }
@@ -122,11 +90,6 @@ void ofApp::onInterfaceEvent(bbrother::InterfaceEventType& Event)
 	case InterfaceEventType::ShowWaitScreen:
 		ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Wait Screen...");
 		break;
-
-	//@todo
-	//case InterfaceEventType::SelectFile:
-		//facedetector->processImage(cast to testMainUIInterfaceLayout->getFilePath)
-	//	break;
 	}
 }
 
@@ -135,7 +98,6 @@ void ofApp::update()
 {
 	//tracker->update();
 	//mainUI->update();
-	faceController->update();
 
 #ifdef DEBUG_VERSION
 	//testKinectInterfaceLayout->update();
@@ -157,8 +119,7 @@ void ofApp::draw()
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h)
-{
+void ofApp::windowResized(int w, int h){
 
 }
 

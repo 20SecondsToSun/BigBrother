@@ -1,30 +1,25 @@
-#include "ScreenController.h"
+#include "MainAppUIHolder.h"
 #include "screens/WaitScreen.h"
 
 using namespace bbrother;
 
-ScreenController::ScreenController()
+MainAppUIHolder::MainAppUIHolder()
 {
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "MainAppUIHolder init");
 	currentScreen = bbrother::BaseScreenPtr(new WaitScreen());
 }
 
-void ScreenController::newPersonAppear(PersonPtr person)
-{
-	
-}
-
-void ScreenController::update()
+void MainAppUIHolder::update()
 {
 	currentScreen->update();
 }
 
-void ScreenController::draw()
+void MainAppUIHolder::draw()
 {
 	currentScreen->draw();
 }
 
-ScreenController::~ScreenController()
+MainAppUIHolder::~MainAppUIHolder()
 {
 
 }

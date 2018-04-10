@@ -1,11 +1,10 @@
 #pragma once
 #include "ofMain.h"
 #include "screens/BaseScreen.h"
-#include "../person/Person.h"
 
 namespace bbrother
 {
-	typedef ofPtr<class ScreenController> ScreenControllerPtr;
+	typedef ofPtr<class MainAppUIHolder> MainAppUIHolderPtr;
 
 	enum class ScreenState
 	{
@@ -15,15 +14,14 @@ namespace bbrother
 		Result
 	};
 
-	class ScreenController
+	class MainAppUIHolder
 	{
 	public:
-		ScreenController();
+		MainAppUIHolder();
 		virtual void update();
 		virtual void draw();
 
-		void newPersonAppear(PersonPtr person);
-		virtual ~ScreenController();
+		virtual ~MainAppUIHolder();
 
 	private:
 		BaseScreenPtr currentScreen;

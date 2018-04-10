@@ -1,16 +1,19 @@
 #include "FacePlusPlusDetector.h"
 #include "ofxJSON.h"
-#include "json/JsonParserFaceplusPlus.h"
+#include "JsonParserFace.h"
+#include "JsonParser.h"
+#include "FaceSetHandler.h"
+#include <utility>
+#include "ofThread.h"
 
 using namespace bbrother;
 
 FacePlusPlusDetector::FacePlusPlusDetector()
 {
-	ofLog(ofLogLevel::OF_LOG_NOTICE, "Face Plus Plus Detector init");
-	ofAddListener(httpService.ServerResponseEvent, this, &FacePlusPlusDetector::onServerResponse);
+	ofLog(ofLogLevel::OF_LOG_NOTICE, "Face Plus Plus Detector init");	
 }
 
-void FacePlusPlusDetector::init(ConfigPtr config)
+void FacePlusPlusDetector::init( ConfigPtr config )
 {
 	string FACE_PROTOCOL = "https";
 	string FACE_HOST = "api-us.faceplusplus.com";
@@ -20,47 +23,68 @@ void FacePlusPlusDetector::init(ConfigPtr config)
 	API_KEY = "t1y6VUUSmxx8yLUiww5SwiigbR-CWPrr";
 	API_SECRET = "A4dY2MQMKXEJgomNBWNkBANwKGB9ssEe";
 
-	setPhotoProcessStatus(PhotoProcessStatus::WaitForPhoto);
+	test = WaitForPhoto;
+	ofNotifyEvent( status_event, test );
+
+	parser = dynamic_cast<JsonParser<Face>*>(new JsonParserFace());
+
+	httpUtils.start();
 }
 
-void FacePlusPlusDetector::processImage(const string& path) 
-{
-	setPhotoProcessStatus(PhotoProcessStatus::Process);
-
-	vector<HttpService::RequestParam> requestParams;
-	requestParams.push_back(HttpService::RequestParam("api_key", API_KEY));
-	requestParams.push_back(HttpService::RequestParam("api_secret", API_SECRET));
-	requestParams.push_back(HttpService::RequestParam("return_attributes", "gender,age,ethnicity,beauty"));
-
-	HttpService::RequestParam fileParam("image_file", path);
-
-	vector<HttpService::HeaderParam> headerParams;
-	httpService.makeRequest(FACE_URL, HTTPRequestMethod::POST, requestParams, fileParam);
+Face* FacePlusPlusDetector::ProcessImage(string path_) {
+	path = path_;
+	res = nullptr;
+	makeRequest(FACE_URL, API_KEY, API_SECRET, path );
+	return res;
 }
 
-void FacePlusPlusDetector::update()
+void FacePlusPlusDetector::makeRequest(const string& FACE_URL, const string& API_KEY, const string& API_SECRET, const string& filePath)
 {
-	httpService.update();
-}
+	test = Process;
+	ofNotifyEvent( status_event, test );
 
-void FacePlusPlusDetector::onServerResponse(const string& response)
-{
-	JsonParserFaceplusPlus parser(response);
-	bool success = parser.parse();
+	ofAddListener(httpUtils.newResponseEvent, this, &FacePlusPlusDetector::newResponse);
 
-	if (success)
-	{
-		FacePtr face = parser.getFace();
-		setPhotoProcessStatus(PhotoProcessStatus::Detect);
-		face->print();
+	ofxHttpForm form;
+	form.action = FACE_URL;
+	cout << "FACE_URL: " << FACE_URL << endl;
+	form.method = HTTPRequestMethod::POST;
+	form.addFormField("api_key", API_KEY);
+	form.addFormField("api_secret", API_SECRET);
+	form.addFile("image_file", filePath);
+	form.addFormField( "return_attributes", "gender,age,ethnicity,beauty" );
+	httpUtils.addForm(form);
+
+	std::unique_lock<std::mutex> lock( own_mutex );
+	while( res == nullptr ) {
+		conditional_variable.wait(lock);
 	}
-	else
-	{
-		setPhotoProcessStatus(PhotoProcessStatus::NotDetect);
+}
+
+
+void FacePlusPlusDetector::newResponse( ofxHttpResponse & response)
+{
+	string response_body = response.responseBody;
+	std::cout << "newResponse" << std::endl;
+	parser->SetJsonStr(response_body );
+	res = parser->Parse();
+	//FaceSetHandler* faceSet = new FaceSetHandler();
+	//faceSet->Create();
+
+	if( res == nullptr ) {
+		test = NotDetect;
+		ofNotifyEvent( status_event, test );
+		std::cout << "ERROR" << std::endl;
+	} else {
+		test = Detect;
+		ofNotifyEvent( status_event, test );
+		//faceSet->AddFaces( res->getToken() );
 	}
+	conditional_variable.notify_one();
 }
 
 FacePlusPlusDetector::~FacePlusPlusDetector()
 {
-
+	delete parser;
+	httpUtils.stop();
 }

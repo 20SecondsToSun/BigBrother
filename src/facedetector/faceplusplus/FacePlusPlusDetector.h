@@ -1,10 +1,13 @@
 #pragma once
 #include "ofMain.h"
-#include "../abstract/FaceDetector.h"
+#include "../FaceDetector.h"
 #include "FacePlusPlusTypes.h"
 
-#include "../../tools/http/HttpService.h"
+#include "../../tools/http/ofxHttpUtils.h"
 #include "../../tools/http/ofxHttpTypes.h"
+#include "JsonParser.h"
+#include <condition_variable>
+#include <mutex>
 
 namespace bbrother
 {
@@ -14,22 +17,27 @@ namespace bbrother
 	{
 	public:
 		FacePlusPlusDetector();
-		virtual ~FacePlusPlusDetector();
+		virtual void init( ConfigPtr config ) override;
+		virtual Face* ProcessImage( string path ) override;
 
-		virtual void init(ConfigPtr config) override;
-		virtual void update() override;	
-		virtual void processImage(const string& path) override;
+		virtual ~FacePlusPlusDetector() override;
 
 	private:
-		Face face;
-		HttpService httpService;
+		ofxHttpUtils httpUtils;
 
-		void onServerResponse(const string& response);
-		
+		void makeRequest(const string& FACE_URL, const string& API_KEY, const string& API_SECRET, const string& filePath);
+		void newResponse( ofxHttpResponse & response );
+
 		string FACE_URL;
 		string API_KEY;
 		string API_SECRET;
 		string path;
+
+		Face* res;
+		JsonParser<Face>* parser;
+
+		std::condition_variable conditional_variable;
+		std::mutex own_mutex;
 	};
 }
 

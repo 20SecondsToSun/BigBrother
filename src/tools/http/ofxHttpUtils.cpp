@@ -302,7 +302,6 @@ ofxHttpResponse ofxHttpUtils::doPostForm(ofxHttpForm & form){
 			req.set(name, val);
 		}
 
-
         HTTPResponse res;
 		HTMLForm pocoForm;
 		// create the form data to send
