@@ -6,7 +6,7 @@ using namespace bbrother;
 
 MainAppUIHolder::MainAppUIHolder()
 {
-	background = CloudPtr(new Cloud());
+	background = BackgroundPtr(new Background());
 	screenController = ScreenControllerPtr(new ScreenController());
 
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "MainAppUIHolder init");
@@ -24,11 +24,6 @@ void MainAppUIHolder::draw()
 	screenController->draw();
 }
 
-void MainAppUIHolder::setter(ScreenState _state)
-{
-	
-}
-
 MainAppUIHolder::~MainAppUIHolder()
 {
 
@@ -38,14 +33,11 @@ void MainAppUIHolder::onInterfaceEvent(bbrother::InterfaceEventType& Event)
 {
 	switch (Event)
 	{
-	case InterfaceEventType::ShowWaitScreen:
-		break;
-
-	case InterfaceEventType::ShowDetectScreen:
+	case InterfaceEventType::NewPersonAppear:
 		screenController->newPersonAppear(PersonPtr(new Person(idadd++)));
 		break;
 
-	case InterfaceEventType::ShowResultScreen:
+	case InterfaceEventType::PersonRecognized:
 		screenController->personRecognized(PersonPtr(new Person(iddel++)));
 		break;
 	}

@@ -15,8 +15,8 @@ namespace bbrother
 
 		virtual void update();
 		virtual void draw();
-		virtual void show(); //запускается стартовую анимацию появления всех компонентов экрана
-		virtual void hide(); //запускается финальную анимацию всех компонентов экрана
+		virtual void show();
+		virtual void hide();
 
 		void setLocationAnim(ofPoint _location);
 		void setLocation(ofPoint _location);
@@ -25,22 +25,23 @@ namespace bbrother
 
 		virtual ~BaseCard();
 
-		//bool operator < (const BaseCard &other) const;
 		float getCreationTime();
 		PersonPtr getPerson();
 
-		ofxCinderTimeline::Timeline& timeline() { return *mTimeline; }
+		ofxCinderTimeline::Timeline& movetimeline() { return *mmoveTimeline; }
 
 	private:
 		
-		PersonPtr person; //указатель на пользователя
-		ofRectangle size; //карточка
-		ofRectangle imageSize; //изображение человека
+		PersonPtr person;
+		ofRectangle size;
+		ofRectangle imageSize;
 
 		float creationTime;
 
-		ofPtr<ofxCinderTimeline::Timeline> mTimeline;
+		ofPtr<ofxCinderTimeline::Timeline> mmoveTimeline;
 		ofxCinderTimeline::Anim<ofPoint> location;
 		ofPoint targetLocation;
+
+		ofTrueTypeFont font;
 	};
 }

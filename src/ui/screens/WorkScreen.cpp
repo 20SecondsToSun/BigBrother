@@ -4,15 +4,16 @@ using namespace bbrother;
 
 WorkScreen::WorkScreen()
 {
-	mTimeline = ofxCinderTimeline::Timeline::create();
-	mTimeline->stepTo(ofGetElapsedTimef());
+	mvisTimeline = ofxCinderTimeline::Timeline::create();
+	mvisTimeline->stepTo(ofGetElapsedTimef());
 
 	detectCardsContainer = BaseContainerPtr(new BaseContainer());
-	detectCardsContainer->setLocation(ofPoint(0, 0)); 
-	recognizeCardsContainer = BaseContainerPtr(new BaseContainer());
-	recognizeCardsContainer->setLocation(ofPoint(0, ofGetHeight() - 170));
+	detectCardsContainer->setLocation(ofPoint(0, 0));
 
-	font.load("ofxbraitsch/fonts/Verdana.ttf", 64);
+	recognizeCardsContainer = BaseContainerPtr(new BaseContainer());
+	recognizeCardsContainer->setLocation(ofPoint(0, ofGetHeight() - 220));
+
+	font.load("ofxbraitsch/fonts/Starjout.ttf", 32);
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Work screen init");
 }
 
@@ -20,26 +21,42 @@ WorkScreen::WorkScreen()
 void WorkScreen::show()
 {
 	ofNotifyEvent(BaseScreen::showAnimationcomplete, this);
-	//timeline().apply(&visibility, 255.0f, 1.0f, ofxCinderTimeline::EaseInOutSine()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::showAnimationcomplete, this); }));
+	vistimeline().stepTo(ofGetElapsedTimef());
+	vistimeline().apply(&visibility, 255.0f, 1.0f, ofxCinderTimeline::EaseInOutSine()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::showAnimationcomplete, this); }));
 }
 
 void WorkScreen::hide()
 {
 	ofNotifyEvent(BaseScreen::hideAnimationcomplete, this);
-	//timeline().apply(&visibility, 0.0f, 1.0f, ofxCinderTimeline::EaseInOutSine()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::hideAnimationcomplete, this); }));
+	vistimeline().stepTo(ofGetElapsedTimef());
+	vistimeline().apply(&visibility, 0.0f, 1.0f, ofxCinderTimeline::EaseInOutSine()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::hideAnimationcomplete, this); }));
 }
 
 void WorkScreen::update()
 {
+	detectCardsContainer->setLocation(ofPoint(0, 0));
+	recognizeCardsContainer->setLocation(ofPoint(0, ofGetHeight() - 320));
+
 	detectCardsContainer->update();
 	recognizeCardsContainer->update();
 
-	timeline().stepTo(ofGetElapsedTimef());
+	vistimeline().stepTo(ofGetElapsedTimef());
 }
 
 void WorkScreen::draw()
 {
 	detectCardsContainer->draw();
+	ofEnableAlphaBlending();
+
+	ofSetColor(255, 255, 255, visibility.value());
+	std::string msg = "Nice to see you..";
+	ofRectangle bounds = font.getStringBoundingBox(msg, ofGetWidth() / 2, 100);
+
+	ofSetColor(ofColor::white);
+	font.drawString(msg, bounds.x - bounds.width / 2, bounds.y - bounds.height / 2);
+
+	ofDisableAlphaBlending();
+
 	recognizeCardsContainer->draw();
 }
 

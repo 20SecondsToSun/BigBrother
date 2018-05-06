@@ -2,8 +2,7 @@
 #include "ofMain.h"
 #include "screens/BaseScreen.h"
 #include "../person/Person.h"
-#include <vector>
-
+#include <map>
 
 
 namespace bbrother
@@ -15,8 +14,6 @@ namespace bbrother
 		Wait,
 		Work,
 		Errror
-		//Detect,
-		//Result
 	};
 
 	class ScreenController
@@ -32,9 +29,8 @@ namespace bbrother
 
 		void newPersonAppear(PersonPtr person);
 		void personRecognized(PersonPtr person);
-		//void personNotRecognized(PersonPtr person);
 
-		void setScreen(ScreenState _state);
+		void setCurrentState(ScreenState state);
 		void setWaitScreen();
 		void setWorkScreen();
 
@@ -44,9 +40,8 @@ namespace bbrother
 		virtual ~ScreenController();
 
 	private:
+		ScreenState currentState;
 		BaseScreenPtr currentScreen;
-		vector<BaseScreenPtr> screens;
-
-		ofSoundPlayer sound;
+		std::map<ScreenState, BaseScreenPtr> screens;
 	};
 }

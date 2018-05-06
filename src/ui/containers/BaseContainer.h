@@ -15,24 +15,26 @@ namespace bbrother
 
 		virtual void update();
 		virtual void draw();
-		virtual void show(); //запускается стартовую анимацию появления всех компонентов экрана
-		virtual void hide(); //запускается финальную анимацию всех компонентов экрана
+		virtual void show();
+		virtual void hide();
 
 		virtual void setLocation(const ofPoint&);
 
-		virtual void addCard(BaseCardPtr card); //добавляем карточку
-		virtual void removeCard(BaseCardPtr card);	//удаляем карточку
+		virtual void addCard(BaseCardPtr card);
+		virtual void removeCard(BaseCardPtr card);
 		virtual bool empty();
 
 		virtual ~BaseContainer();
 	private:
-		list<BaseCardPtr> cards; //массив карточек
+		list<BaseCardPtr> cards;
 
-		//ofRectangle size; //размер карточек
-		ofPoint location; //координаты контейнера
+		ofRectangle size;
+		ofPoint location;
 
-		//int сardShowCount; //количество карточек для одновременного показа
+		ofRectangle cardSize = ofRectangle(0, 0, 200, 300);
 
-		float cardRotatorTime = 10.0f; //время жизни картчки
+		int сardShowCount;
+
+		float cardRotatorTime = 10.0f;
 	};
 }

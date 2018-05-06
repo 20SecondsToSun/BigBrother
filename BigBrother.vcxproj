@@ -201,7 +201,7 @@ F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include\cinde
     <ClCompile Include="src\tools\http\ofxHttpUtils.cpp" />
     <ClCompile Include="src\tracker\KinectTracker.cpp" />
     <ClCompile Include="src\tracker\Tracker.cpp" />
-    <ClCompile Include="src\ui\animation\Cloud.cpp" />
+    <ClCompile Include="src\ui\animation\Background.cpp" />
     <ClCompile Include="src\ui\cards\BaseCard.cpp" />
     <ClCompile Include="src\ui\containers\BaseContainer.cpp" />
     <ClCompile Include="src\ui\MainAppUIHolder.cpp" />
@@ -257,7 +257,7 @@ F:\openFrameworks\root\addons\ofxCinderTimeline-master\libs\cinder\include\cinde
     <ClInclude Include="src\tools\http\ofxHttpUtils.h" />
     <ClInclude Include="src\tracker\KinectTracker.h" />
     <ClInclude Include="src\tracker\Tracker.h" />
-    <ClInclude Include="src\ui\animation\Cloud.h" />
+    <ClInclude Include="src\ui\animation\Background.h" />
     <ClInclude Include="src\ui\cards\BaseCard.h" />
     <ClInclude Include="src\ui\containers\BaseContainer.h" />
     <ClInclude Include="src\ui\MainAppUIHolder.h" />

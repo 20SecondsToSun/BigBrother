@@ -1,7 +1,7 @@
 #pragma once
 #include "ofMain.h"
 #include "ScreenController.h"
-#include "animation\Cloud.h"
+#include "animation\Background.h"
 #include "../interface/TestInterfaceLayout.h"
 
 namespace bbrother
@@ -15,14 +15,13 @@ namespace bbrother
 
 		virtual void update();
 		virtual void draw();
-		virtual void setter(ScreenState _state);
 
 		virtual ~MainAppUIHolder();
 
 		void onInterfaceEvent(InterfaceEventType& Event);
 
 	private:
-		CloudPtr background;
+		BackgroundPtr background;
 		ScreenControllerPtr screenController;
 
 		//debug

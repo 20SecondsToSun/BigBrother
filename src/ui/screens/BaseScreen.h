@@ -16,8 +16,8 @@ namespace bbrother
 
 		virtual void update() = 0;
 		virtual void draw() = 0;
-		virtual void show() = 0; //запускается стартовую анимацию появления всех компонентов экрана
-		virtual void hide() = 0; //запускается финальную анимацию всех компонентов экрана
+		virtual void show() = 0;
+		virtual void hide() = 0;
 
 		virtual ~BaseScreen();
 	};

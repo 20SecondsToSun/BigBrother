@@ -23,14 +23,14 @@ namespace bbrother
 
 		virtual ~WorkScreen();
 
-		ofxCinderTimeline::Timeline& timeline() { return *mTimeline; }
+		ofxCinderTimeline::Timeline& vistimeline() { return *mvisTimeline; }
 
 	private:
 		BaseContainerPtr detectCardsContainer;
 		BaseContainerPtr recognizeCardsContainer;
 
-		ofPtr<ofxCinderTimeline::Timeline> mTimeline;
-		ofxCinderTimeline::Anim<float> visibility;
+		ofPtr<ofxCinderTimeline::Timeline> mvisTimeline;
+		ofxCinderTimeline::Anim<float> visibility = 255;
 
 		ofTrueTypeFont font;
 	};

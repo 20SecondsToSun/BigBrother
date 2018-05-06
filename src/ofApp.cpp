@@ -64,19 +64,17 @@ void ofApp::onInterfaceEvent(bbrother::InterfaceEventType& Event)
 		ofLog(ofLogLevel::OF_LOG_NOTICE, "Try detect human...");
 		break;
 
-	case InterfaceEventType::ShowWaitScreen:
-		ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Wait Screen...");
-		mainUI->setter(ScreenState::Wait);
-		break;
+	//case InterfaceEventType::ShowWaitScreen:
+	//	ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Wait Screen...");
+	//	mainUI->setter(ScreenState::Wait);
+	//	break;
 
-	case InterfaceEventType::ShowDetectScreen:
+	case InterfaceEventType::NewPersonAppear:
 		ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Detect Screen...");
-		//mainUI->setter(ScreenState::Detect);
 		break;
 
-	case InterfaceEventType::ShowResultScreen:
+	case InterfaceEventType::PersonRecognized:
 		ofLog(ofLogLevel::OF_LOG_NOTICE, "Show Result Screen...");
-		//mainUI->setter(ScreenState::Result);
 		break;
 	}
 }

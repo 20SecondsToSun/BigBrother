@@ -11,9 +11,8 @@ namespace bbrother
 		TrackingStop,
 		TryDetectHuman,
 
-		ShowWaitScreen,
-		ShowDetectScreen,
-		ShowResultScreen
+		NewPersonAppear,
+		PersonRecognized,
 	};
 
 	typedef ofPtr<class TestInterfaceLayout> TestInterfaceLayoutPtr;

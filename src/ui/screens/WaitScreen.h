@@ -11,21 +11,22 @@ namespace bbrother
 	public:
 		WaitScreen();
 
-		virtual void show() override; //показываем через альфу текст("Bored.." пока)
-		virtual void hide() override; //убираем через альфу текст.
+		virtual void show() override;
+		virtual void hide() override;
 		virtual void update() override;
 		virtual void draw() override;
 
 		virtual ~WaitScreen();
 
-		ofxCinderTimeline::Timeline& timeline() { return *mTimeline; }
+		ofxCinderTimeline::Timeline& vistimeline() { return *mvisTimeline; }
 		ofxCinderTimeline::Timeline& movetimeline() { return *mmoveTimeline; }
 
 	private:
-		ofPtr<ofxCinderTimeline::Timeline> mTimeline;
+		ofPtr<ofxCinderTimeline::Timeline> mvisTimeline;
 		ofPtr<ofxCinderTimeline::Timeline> mmoveTimeline;
+
 		ofxCinderTimeline::Anim<float> visibility = 255;
-		ofxCinderTimeline::Anim<ofPoint> location;
+		ofxCinderTimeline::Anim<ofPoint> disp;
 
 		ofTrueTypeFont font;
 	};

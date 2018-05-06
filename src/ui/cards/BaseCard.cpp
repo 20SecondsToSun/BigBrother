@@ -4,34 +4,40 @@ using namespace bbrother;
 
 BaseCard::BaseCard()
 {
-	mTimeline = ofxCinderTimeline::Timeline::create();
-	mTimeline->stepTo(ofGetElapsedTimef());
+	mmoveTimeline = ofxCinderTimeline::Timeline::create();
+	mmoveTimeline->stepTo(ofGetElapsedTimef());
 
 	creationTime = ofGetElapsedTimef();
+
+	font.load("ofxbraitsch/fonts/Starjout.ttf", 16);
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "BaseCard init");
 }
 
 BaseCard::BaseCard(PersonPtr _person) 
 {
-	mTimeline = ofxCinderTimeline::Timeline::create();
-	mTimeline->stepTo(ofGetElapsedTimef());
+	mmoveTimeline = ofxCinderTimeline::Timeline::create();
+	mmoveTimeline->stepTo(ofGetElapsedTimef());
 	person = _person;
 	creationTime = ofGetElapsedTimef();
+
+	font.load("ofxbraitsch/fonts/Starjout.ttf", 16);
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "BaseCard init");
 }
 
 
 void BaseCard::update()
 {
-	timeline().stepTo(ofGetElapsedTimef());
+	movetimeline().stepTo(ofGetElapsedTimef());
 }
 
 void BaseCard::draw()
 {
-	ofSetColor(230, 230, 230);
-	ofFill();
-	size.setPosition(location);
-	ofDrawRectangle(size);
+	person.get()->face.resize(size.getWidth() / 2, size.getHeight() / 2);
+	person.get()->face.draw(location);
+
+	ofSetColor(255, 255, 255);
+	std::string msg = "Hi, Jackie!";
+	font.drawString(msg, location.value().x, location.value().y + size.getHeight() / 2 + 20);
 }
 
 void BaseCard::show()
@@ -47,7 +53,8 @@ void BaseCard::hide()
 void BaseCard::setLocationAnim(ofPoint _location)
 {
 	if (_location != targetLocation) {
-		timeline().apply(&location, _location, 2.0f, ofxCinderTimeline::EaseInOutCubic());
+		movetimeline().stepTo(ofGetElapsedTimef());
+		movetimeline().apply(&location, _location, 2.0f, ofxCinderTimeline::EaseInOutCubic());
 		targetLocation = _location;
 	}
 }
@@ -68,12 +75,6 @@ BaseCard::~BaseCard()
 {
 
 }
-
-/*
-bool BaseCard::operator < (const BaseCard &other) const {
-	return person->getId() < other.person->getId();
-}
-*/
 
 float BaseCard::getCreationTime() {
 	return creationTime;

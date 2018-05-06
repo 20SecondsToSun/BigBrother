@@ -10,7 +10,6 @@ BaseContainer::BaseContainer()
 
 void BaseContainer::update()
 {
-	//удаляем лишние карточки
 	for (auto i = cards.begin(); i != cards.end();) {
 		if (ofGetElapsedTimef() - i->get()->getCreationTime() > cardRotatorTime) {
 			cards.erase(i);
@@ -21,10 +20,9 @@ void BaseContainer::update()
 		}
 	}
 
-	//обновляем позиции
 	int num = 0;
 	for (auto i = cards.begin(); i != cards.end(); i++) {
-		i->get()->setLocationAnim(ofPoint(location.x + 120 * num + 10, location.y + 10));
+		i->get()->setLocationAnim(ofPoint(location.x + cardSize.getWidth() * num, location.y));
 		num++;
 	}
 
@@ -59,8 +57,8 @@ bool BaseContainer::empty() {
 
 void BaseContainer::addCard(BaseCardPtr card)
 {
-	card->setSize(ofRectangle(0, 0 , 100, 150));
-	card->setLocation(ofPoint(ofGetWidth() + 10, location.y + 10));
+	card->setSize(cardSize);
+	card->setLocation(ofPoint(ofGetWidth(), location.y));
 	cards.push_back(card);
 }
 

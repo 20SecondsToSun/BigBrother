@@ -5,16 +5,14 @@
 #include "screens/DetectScreen.h"
 #include "screens/ResultScreen.h"
 
-
 using namespace bbrother;
 
 ScreenController::ScreenController() 
 {
-	screens.push_back(BaseScreenPtr(new WaitScreen()));
-	screens.push_back(BaseScreenPtr(new WorkScreen()));
-	//screens.push_back(BaseScreenPtr(new DetectScreen()));
-	//screens.push_back(BaseScreenPtr(new ResultScreen()));
-	currentScreen = screens[0];
+	screens.insert(std::pair< ScreenState, WaitScreenPtr> (ScreenState::Wait, WaitScreenPtr(new WaitScreen())));
+	screens.insert(std::pair< ScreenState, WorkScreenPtr>(ScreenState::Work, WorkScreenPtr(new WorkScreen())));
+	currentScreen = screens.find(ScreenState::Wait)->second;
+
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "ScreenController init");
 };
 
@@ -23,11 +21,8 @@ void ScreenController::update()
 {
 	currentScreen->update();
 
-	ofSoundUpdate();
-
-	//проверяем состояние экрана 
-	if (dynamic_cast<WaitScreen*> (currentScreen.get()) == NULL) {
-		if ((dynamic_cast<WorkScreen*> (currentScreen.get()) != NULL) && (! dynamic_cast<WorkScreen*>(currentScreen.get())->isUsed())) {
+	if (currentState != ScreenState::Wait) {
+		if ((currentState == ScreenState::Work) && (!dynamic_cast<WorkScreen*>(currentScreen.get())->isUsed())) {
 			toWaitScreen();
 		}
 	}
@@ -41,50 +36,25 @@ void ScreenController::draw()
 
 void ScreenController::newPersonAppear(PersonPtr person) 
 {
-	if (dynamic_cast<WorkScreen*> (currentScreen.get()) == NULL) {
+	if (currentState != ScreenState::Work) {
 		toWorkScreen();
 	}
 	
-	dynamic_cast<WorkScreen*>(screens[(int)ScreenState::Work].get())->newPersonAppear(person);
+	reinterpret_cast<WorkScreen*>(screens.find(ScreenState::Work)->second.get())->newPersonAppear(person);
 }
 
 void ScreenController::personRecognized(PersonPtr person) 
 {
-	if (dynamic_cast<WorkScreen*> (currentScreen.get()) == NULL) {
+	if (currentState != ScreenState::Work) {
 		toWorkScreen();
 	}
 
-	reinterpret_cast<WorkScreen*>(screens[(int)ScreenState::Work].get())->personRecognized(person);
+	reinterpret_cast<WorkScreen*>(screens.find(ScreenState::Work)->second.get())->personRecognized(person);
 }
 
-/*
-void ScreenController::personNotRecognized(PersonPtr person) 
-{
-	
-}
-*/
-
-
-void ScreenController::setScreen(ScreenState _state) {
-	currentScreen = screens[(int)ScreenState::Work];
-}
-
-void ScreenController::setWaitScreen() {
-	currentScreen = screens[(int)ScreenState::Wait];
-	currentScreen->show();
-
-	sound.loadSound("");
-	sound.setLoop(true);
-	sound.play();
-}
-
-void ScreenController::setWorkScreen() {
-	currentScreen = screens[(int)ScreenState::Work];
-	currentScreen->show();
-
-	sound.loadSound("");
-	sound.setLoop(true);
-	sound.play();
+void ScreenController::setCurrentState(ScreenState state) {
+	currentState = state;
+	currentScreen = screens.find(currentState)->second;
 }
 
 
@@ -96,6 +66,17 @@ void ScreenController::toWorkScreen() {
 void ScreenController::toWaitScreen() {
 	currentScreen->hide();
 	ofAddListener(currentScreen->hideAnimationcomplete, this, &ScreenController::setWaitScreen);
+}
+
+
+void ScreenController::setWaitScreen() {
+	setCurrentState(ScreenState::Wait);
+	currentScreen->show();
+}
+
+void ScreenController::setWorkScreen() {
+	setCurrentState(ScreenState::Work);
+	currentScreen->show();
 }
 
 

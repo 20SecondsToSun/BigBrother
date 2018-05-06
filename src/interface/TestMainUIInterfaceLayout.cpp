@@ -6,17 +6,17 @@ TestMainUIInterfaceLayout::TestMainUIInterfaceLayout()
 {
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "IFish InterfaceLayout init");
 	
-	screen1btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Wait"));
+	screen1btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Detect"));
 	screen1btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen1ButtonClicked);
 	components.push_back(screen1btn);
 
-	screen2btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Detect"));
+	screen2btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Recognise"));
 	screen2btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen2ButtonClicked);
 	components.push_back(screen2btn);
 
-	screen3btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Recognise"));
-	screen3btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen3ButtonClicked);
-	components.push_back(screen3btn);
+	//screen3btn = ofPtr<ofxDatGuiButton>(new ofxDatGuiButton("Recognise"));
+	//screen3btn->onButtonEvent(this, &TestMainUIInterfaceLayout::screen3ButtonClicked);
+	//components.push_back(screen3btn);
 
 	//default align
 	setPosition(ofPoint(100, 40));
@@ -34,19 +34,19 @@ void TestMainUIInterfaceLayout::draw()
 
 void TestMainUIInterfaceLayout::screen1ButtonClicked(ofxDatGuiButtonEvent event)
 {
-	auto type = InterfaceEventType::ShowWaitScreen;
+	auto type = InterfaceEventType::NewPersonAppear;
 	ofNotifyEvent(InterfaceEvent, type);
 }
 
 void TestMainUIInterfaceLayout::screen2ButtonClicked(ofxDatGuiButtonEvent event)
 {
-	auto type = InterfaceEventType::ShowDetectScreen;
+	auto type = InterfaceEventType::PersonRecognized;
 	ofNotifyEvent(InterfaceEvent, type);
 }
 
 void TestMainUIInterfaceLayout::screen3ButtonClicked(ofxDatGuiButtonEvent event)
 {
-	auto type = InterfaceEventType::ShowResultScreen;
+	auto type = InterfaceEventType::NewPersonAppear;
 	ofNotifyEvent(InterfaceEvent, type);
 }
 

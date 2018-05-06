@@ -85,11 +85,11 @@
     <ClCompile Include="src\ui\cards\BaseCard.cpp">
       <Filter>src\ui\cards</Filter>
     </ClCompile>
-    <ClCompile Include="src\ui\animation\Cloud.cpp">
-      <Filter>src\ui\animation</Filter>
-    </ClCompile>
     <ClCompile Include="src\ui\screens\WorkScreen.cpp">
       <Filter>src\ui\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\animation\Background.cpp">
+      <Filter>src\ui\animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -362,11 +362,11 @@
     <ClInclude Include="src\ui\cards\BaseCard.h">
       <Filter>src\ui\cards</Filter>
     </ClInclude>
-    <ClInclude Include="src\ui\animation\Cloud.h">
-      <Filter>src\ui\animation</Filter>
-    </ClInclude>
     <ClInclude Include="src\ui\screens\WorkScreen.h">
       <Filter>src\ui\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\animation\Background.h">
+      <Filter>src\ui\animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

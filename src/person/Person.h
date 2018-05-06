@@ -25,8 +25,8 @@ namespace bbrother
 			return id;
 		}
 
-	private:
 		int id;
+		ofImage face;
 		KinectData kinectData;
 		FaceData faceData;
 	};
