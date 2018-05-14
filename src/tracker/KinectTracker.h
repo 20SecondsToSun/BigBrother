@@ -20,6 +20,8 @@ namespace bbrother
 		virtual ~KinectTracker();
 		virtual void init(ConfigPtr config) override;
 
+		ofImage cropFrame(const ofImage& source, const ofRectangle& sorect);
+
 	private:
 		int DepthWidth = 512;
 		int DepthHeight = 424;

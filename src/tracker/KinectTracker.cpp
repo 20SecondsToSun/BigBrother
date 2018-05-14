@@ -86,7 +86,7 @@ void KinectTracker::update()
 		for (int x = 0; x < DepthWidth; ++x) 
 		{
 			int index = (y * DepthWidth) + x;
-			bodyIndexImg.setColor(x, y, ofColor::white);
+			//bodyIndexImg.setColor(x, y, ofColor::white);
 			foregroundImg.setColor(x, y, ofColor::white);
 
 			float val = bodyIndexPix[index];
@@ -95,8 +95,8 @@ void KinectTracker::update()
 				continue;
 			}
 		
-			ofColor c = ofColor::fromHsb(val * 255 / bodies.size(), 200, 255);
-			bodyIndexImg.setColor(x, y, c);
+			//ofColor c = ofColor::fromHsb(val * 255 / bodies.size(), 200, 255);
+			//bodyIndexImg.setColor(x, y, c);
 
 			// For a given (x,y) in the depth image, lets look up where that point would be
 			// in the color image
@@ -114,7 +114,6 @@ void KinectTracker::update()
 			{
 				continue;
 			}
-			
 			foregroundImg.setColor(x, y, colorPix.getColor(mappedCoord.x, mappedCoord.y));
 		}
 	}
@@ -122,6 +121,9 @@ void KinectTracker::update()
 
 
 	bodyIndexImg.update();
+	ofRectangle rec(0, 0, bodyIndexImg.getWidth(), bodyIndexImg.getHeight());
+	ofImage resImg = cropFrame(bodyIndexImg, rec);
+	resImg.saveImage("C:\Users\maxim\Pictures\image.png");
 	foregroundImg.update();
 }
 
@@ -153,14 +155,14 @@ void KinectTracker::draw()
 			}
 			ofPopStyle();
 
-			if (!testOneDraw)
+			/*if (!testOneDraw)
 			{
 				personFbo.begin();
 				ofSetColor(255, 255, 255, 255);
 				foregroundImg.draw(0, 0);
 				personFbo.end();
 
-				auto screenShot = personFbo.getTexture();
+				/*auto screenShot = personFbo.getTexture();
 
 				ofPixels pixels;
 				screenShot.readToPixels(pixels);
@@ -170,9 +172,23 @@ void KinectTracker::draw()
 				image.save("file.png");
 				testOneDraw = true;
 				
-			}		
+			}		*/
 		}
 	}
+
+	//kinect.getDepthSource()->draw(0, 0, DepthWidth, DepthHeight);  // note that the depth texture is RAW so may appear dark
+
+	//																   // Color is at 1920x1080 instead of 512x424 so we should fix aspect ratio
+	float colorHeight = DepthWidth * (kinect.getColorSource()->getHeight() / kinect.getColorSource()->getWidth());
+	float colorTop = (DepthHeight - colorHeight) / 2.0;
+
+	kinect.getColorSource()->draw(DepthWidth, 0 + colorTop, DepthWidth, colorHeight);
+	kinect.getBodySource()->drawProjected(DepthWidth, 0 + colorTop, DepthWidth, colorHeight);
+
+	//kinect.getInfraredSource()->draw(0, DepthHeight, DepthWidth, DepthHeight);
+
+	//kinect.getBodyIndexSource()->draw(DepthWidth, DepthHeight, DepthWidth, DepthHeight);
+	//kinect.getBodySource()->drawProjected(DepthWidth, DepthHeight, DepthWidth, DepthHeight, ofxKFW2::ProjectionCoordinates::DepthCamera);
 
 	stringstream ss;
 	ss << "fps : " << ofGetFrameRate() << endl;
@@ -187,9 +203,17 @@ void KinectTracker::draw()
 
 void KinectTracker::stop()
 {
-
+	kinect.close();
 }
 
+
+ofImage KinectTracker::cropFrame(const ofImage& source, const ofRectangle& sorect)
+{
+	ofImage image;
+	ofImage source_ = source;
+	image.cropFrom(source_, sorect.x, sorect.y, sorect.width, sorect.height);
+	return image;
+}
 
 KinectTracker::~KinectTracker()
 {
