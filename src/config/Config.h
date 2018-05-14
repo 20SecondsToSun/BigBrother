@@ -8,40 +8,56 @@ namespace bbrother
 	class Config
 	{
 	public:
-		enum apiField
-		{
-			FACEPROTOCOL,
-			FACEHOST,
-			FACEMETHOD,
-			APIKEY,
-			APISECRET
-		};
-
-		struct ApiConfig
+		struct FacePlusPlusData
 		{
 			std::string faceProtocol;
 			std::string faceHost;
-			std::string faceMethod;
-			std::string apiKey;
-			std::string apiSecret;
+			std::string faceDetectMethod;
+			std::string faceSearchMethod;
+			std::string APIKey;
+			std::string APISecret;
+		};
+
+		struct FamilyBaseData
+		{
+			std::string familyProtocol;
+			std::string familyHost;
+			std::string grantType;
+			int clientId;
+			std::string clientSecret;
+			std::string username;
+			std::string password;
+		};
+
+		struct KinectData
+		{
+			int depthWidth;
+			int depthHeight;
+			int colorWidth;
+			int colorHeight;
+		};
+
+		struct UIData
+		{
+
 		};
 
 		Config();
 
-		ofEvent<void> loadCompleteEvent;
-		ofEvent<void> loadErrorEvent;
-		
-		virtual void load();
+		void setFacePlusPlusData(const FacePlusPlusData& facePlusPlusData);
+		void setFamilyBaseData(const FamilyBaseData& familyBaseData);
+		void setKinectData(const KinectData& kinectData);
 
-		virtual const std::string& getApiField(apiField fieldName);
+		FacePlusPlusData getFacePlusPlusData() const;
+		FamilyBaseData getFamilyBaseData() const;
+		KinectData getKinectData() const;
 
-		virtual void setApiField(apiField fieldName, const std::string& value);
-
-		virtual ~Config();
+		~Config();
 
 	private:
-		static const std::string filePath;
-		ApiConfig apiData;
+		FacePlusPlusData facePlusPlusData;
+		FamilyBaseData familyBaseData;
+		KinectData kinectData;
+		UIData uiData;
 	};
 }
-
