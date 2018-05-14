@@ -25,7 +25,7 @@ namespace bbrother
 
 		ofEvent<TrackerPerson> newPersonAppear;
 		ofEvent<void> humanLost;
-		ofEvent<void> trackerError;
+		ofEvent<TrackerError> trackerError;
 
 		virtual void update() = 0;
 		virtual void draw() = 0;	
