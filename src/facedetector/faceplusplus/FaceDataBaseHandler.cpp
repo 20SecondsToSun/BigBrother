@@ -1,5 +1,6 @@
 #include "FaceDataBaseHandler.h"
 #include "JsonParserDB.h"
+#include "JsonParserUserID.h"
 
 using namespace bbrother;
 
@@ -14,6 +15,7 @@ FaceDataBaseHandler::FaceDataBaseHandler() {
 	most_secret_pwd = "kittycat123";
 	email = "litv.daria@gmail.com";
 	parser = dynamic_cast<JsonParser<DataBaseParams>*>( new JsonParserDB() );
+	parser_id = dynamic_cast<JsonParser<int>*>( new JsonParserUserID() );
 	data_base_params = nullptr;
 	httpUtils_authorize.start();
 	authorize();
@@ -31,7 +33,7 @@ FaceDataBaseHandler::~FaceDataBaseHandler() {
 	//httpUtils.stop();
 }
 
-void FaceDataBaseHandler::CreateUser( string name, string token ) {
+int FaceDataBaseHandler::CreateUser( string name, string token ) {
 	//httpUtils_create.start();
 	res = false;
 	ofAddListener( httpUtils_create.newResponseEvent, this, &FaceDataBaseHandler::newResponseCreate );
@@ -52,6 +54,7 @@ void FaceDataBaseHandler::CreateUser( string name, string token ) {
 	while( !res ) {
 		conditional_variable.wait( lock );
 	}
+	return user_id;
 	//httpUtils_create.stop();
 }
 
@@ -59,6 +62,10 @@ void FaceDataBaseHandler::newResponseCreate( ofxHttpResponse& response )
 {
 	std::cout << response.responseBody << std::endl;
 	res = true;
+	parser_id->SetJsonStr( (string)response.responseBody );
+	int* id = parser_id->Parse();
+	user_id = *id;
+	delete id;
 	conditional_variable.notify_one();
 }
 

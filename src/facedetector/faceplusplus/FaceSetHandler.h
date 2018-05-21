@@ -15,7 +15,7 @@ namespace bbrother {
 		void AddFaces( string tokens );
 		void RemoveFaceSet();
 		void Update();
-		void Search(Face* face);
+		int Search(Face* face);
 
 	private:
 		void newResponseCreate( ofxHttpResponse & response );
@@ -41,10 +41,12 @@ namespace bbrother {
 		string api_key;
 		string api_secret;
 		JsonParser<string>* parser;
+		JsonParser<int>* parser_results;
 
 
 		std::condition_variable conditional_variable;
 		std::mutex own_mutex;
 		bool succ;
+		int* res;
 	};
 }

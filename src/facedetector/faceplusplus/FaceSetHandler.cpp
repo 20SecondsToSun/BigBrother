@@ -1,12 +1,14 @@
 #include "FaceSetHandler.h"
 #include "JsonParser.h"
 #include "JsonParseFaceSet.h"
+#include "JsonParserUserID.h"
 
 using namespace bbrother;
 
 FaceSetHandler::FaceSetHandler() {
 	create_url = "https://api-us.faceplusplus.com/facepp/v3/faceset/create";
-	display_name = "test_faceset_harry_potter";
+	display_name = "main_project_face_set";
+	faceSetToken = "8defbe2d753677ee696eea726ea03218";
 
 	api_key = "t1y6VUUSmxx8yLUiww5SwiigbR-CWPrr";
 	api_secret = "A4dY2MQMKXEJgomNBWNkBANwKGB9ssEe";
@@ -14,6 +16,7 @@ FaceSetHandler::FaceSetHandler() {
 	add_url = "https://api-us.faceplusplus.com/facepp/v3/faceset/addface";
 
 	parser = dynamic_cast<JsonParser<string>*>( new JsonParserFaceSet() );
+	parser_results = dynamic_cast<JsonParser<int>*>( new JsonParserUserID() );
 
 	httpUtilsCreate.start();
 	httpUtilsAdd.start();
@@ -47,7 +50,7 @@ void FaceSetHandler::newResponseCreate( ofxHttpResponse & response ) {
 	assert( faceSetToken != "\0" );
 	ofLog( ofLogLevel::OF_LOG_NOTICE, "FaceSet created, token = " + faceSetToken );
 	conditional_variable.notify_one();
-	//std::cout << "Created: " << faceSetToken;
+	std::cout << "Created: " << faceSetToken;
 }
 
 void FaceSetHandler::AddFaces(string tokens) {
@@ -71,7 +74,7 @@ void FaceSetHandler::AddFaces(string tokens) {
 	}
 }
 
-void FaceSetHandler::Search(Face* face)
+int FaceSetHandler::Search(Face* face)
 {
 	succ = false;
 	ofAddListener( htttpUtilsSearch.newResponseEvent, this, &FaceSetHandler::newResponseSearch );
@@ -91,12 +94,21 @@ void FaceSetHandler::Search(Face* face)
 	while( !succ ) {
 		conditional_variable.wait( lock );
 	}
+
+	if( res != nullptr ) {
+		int copy_res = *res;
+		delete res;
+		return copy_res;
+	}
+	return -1;
 }
 
 void FaceSetHandler::newResponseSearch( ofxHttpResponse& response )
 {
 	succ = true;
 	std::cout << response.responseBody;
+	parser_results->SetJsonStr( (string)response.responseBody );
+	res = parser_results->Parse();
 	conditional_variable.notify_one();
 }
 

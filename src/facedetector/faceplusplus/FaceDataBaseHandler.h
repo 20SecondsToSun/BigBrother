@@ -20,7 +20,7 @@ namespace bbrother {
 	class FaceDataBaseHandler {
 	public:
 		FaceDataBaseHandler();
-		void CreateUser(string name, string token);
+		int CreateUser(string name, string token);
 		string GetTokenById();
 		void GetAll();
 		void GetOne( int id );
@@ -58,6 +58,7 @@ namespace bbrother {
 		string email;
 
 		JsonParser<DataBaseParams>* parser;
+		JsonParser<int>* parser_id;
 
 		DataBaseParams* data_base_params;
 
@@ -65,5 +66,6 @@ namespace bbrother {
 		std::mutex own_mutex;
 		bool succ;
 		bool res;
+		int user_id;
 	};
 }

@@ -38,10 +38,10 @@ void ofApp::setup()
 	//Face* res = testPointer->face_detector->ProcessImage( "c:\\demo1.jpg" );
 	//std::cout << res->getToken() << std::endl;
 
-	/* FaceDataBaseHandler* handler_db = new FaceDataBaseHandler();
-	TestFacePlusPlusInterfaceLayout* testPointer = dynamic_cast<TestFacePlusPlusInterfaceLayout*>( testMainUIInterfaceLayout.get() );
-	FaceSetHandler* handler = new FaceSetHandler();
-	handler->Create(); */
+	//FaceDataBaseHandler* handler_db = new FaceDataBaseHandler();
+	//TestFacePlusPlusInterfaceLayout* testPointer = dynamic_cast<TestFacePlusPlusInterfaceLayout*>( testMainUIInterfaceLayout.get() );
+	//FaceSetHandler* handler = new FaceSetHandler();
+	//handler->Create();
 
 	//handler_db->CreateUser( "add check", res->getToken() );
 	//handler_db->GetAll();
@@ -54,15 +54,40 @@ void ofApp::setup()
 	//handler_db->GetAll();
 
 	TestFacePlusPlusInterfaceLayout* testPointer = dynamic_cast<TestFacePlusPlusInterfaceLayout*>( testMainUIInterfaceLayout.get() );
+	FaceDataBaseHandler* handler_db = new FaceDataBaseHandler();
+	FaceSetHandler* handler_face_set = new FaceSetHandler();
 
-	Face* res = testPointer->face_detector->ProcessImage( "c:\\demo1.jpg" );
-	std::cout << res->getToken() << std::endl;
-	testPointer->face_detector->AddUserId( 1, res->getToken() );
+	/*Face* res = testPointer->face_detector->ProcessImage( "c:\\demo1.jpg" );
+	int id = handler_db->CreateUser( "Jolie", res->getToken() );
+	testPointer->face_detector->AddUserId( id, res->getToken() );
+	handler_face_set->AddFaces( res->getToken() );
+
+	res = testPointer->face_detector->ProcessImage( "c:\\demo2.jpg" );
+	handler_face_set->AddFaces( res->getToken() );
+	id = handler_db->CreateUser( "Ann", res->getToken() );
+	testPointer->face_detector->AddUserId( id, res->getToken() );
+
+	res = testPointer->face_detector->ProcessImage( "c:\\demo3.jpg" );
+	id = handler_db->CreateUser( "Don't remember who", res->getToken() );
+	testPointer->face_detector->AddUserId( id, res->getToken() );
+	handler_face_set->AddFaces( res->getToken() );*/
+
+	handler_db->GetAll();
+
+	Face* res = testPointer->face_detector->ProcessImage( "c:\\demoSearch1.jpg" );
+	int user_id = handler_face_set->Search( res );
+	if( user_id != -1 ) {
+		std::cout << std::endl << "FOUND" << std::endl;
+		std::cout << user_id << std::endl;;
+	} else {
+		std::cout << std::endl << "NOT FOUND" << std::endl;
+	}
 	
-	FaceSetHandler* handler = new FaceSetHandler();
-	handler->Create();
-	handler->AddFaces( res->getToken() );
-	handler->Search( res );
+//	FaceSetHandler* handler = new FaceSetHandler();
+	//handler->Create();
+	//handler->AddFaces( res->getToken() );
+	//int user_id = handler->Search( res );
+	//std::cout << user_id << std::endl;
 
 	/*TestFacePlusPlusInterfaceLayout* testPointer = dynamic_cast<TestFacePlusPlusInterfaceLayout*>( testMainUIInterfaceLayout.get() );
 	FaceSetHandler* handler = new FaceSetHandler();
