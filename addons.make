@@ -1,2 +1,4 @@
 ofxDatGui
+ofxIO-master
 ofxJSON
+ofxKinectForWindows2

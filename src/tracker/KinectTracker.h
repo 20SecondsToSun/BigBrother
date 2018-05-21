@@ -20,7 +20,7 @@ namespace bbrother
 		virtual ~KinectTracker();
 		virtual void init(ConfigPtr config) override;
 
-		void sendImage(const ofImage& image);
+		void sendImage(ofImage& image);
 		ofImage cropFrame(const ofImage& source, const ofRectangle& sorect);
 
 		ofEvent<ofImage> imageToSend;

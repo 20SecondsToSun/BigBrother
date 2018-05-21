@@ -204,9 +204,11 @@ void KinectTracker::stop()
 	kinect.close();
 }
 
-void KinectTracker::sendImage(const ofImage& image)
+void KinectTracker::sendImage(ofImage& image)
 {
-	
+	ofBuffer buffer;
+	image.save(buffer);
+	std::string base = IO::Base64Encoding::encode(IO::ByteBuffer(buffer));
 }
 
 
