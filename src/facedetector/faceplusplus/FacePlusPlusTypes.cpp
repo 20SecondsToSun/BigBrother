@@ -59,23 +59,20 @@ void Face::setAttributes(const FaceAttributes& attributes)
 	this->attributes = attributes;
 }
 
-void Face::print() const 
-{
-	attributes.print();
-	faceRectangle.print();
+void Face::Print() const {
+	attributes.Print();
+	faceRectangle.Print();
 	std::cout << "token: " << token << std::endl;
 }
 
-void FaceRectangle::print() const
-{
+void FaceRectangle::Print() const {
 	std::cout << "height: " << height << std::endl;
 	std::cout << "top: " << top << std::endl;
 	std::cout << "left: " << left << std::endl;
 	std::cout << "width: " << width << std::endl;
 }
 
-void FaceAttributes::print() const 
-{
+void FaceAttributes::Print() const {
 	std::cout << "gender: " << gender << std::endl;
 	std::cout << "age: " << age << std::endl;
 	std::cout << "ethnity: " << ethnicity << std::endl;
@@ -90,5 +87,5 @@ FaceAttributes Face::getAttributes() const
 
 Beauty Face::getBeauty() const
 {
-	return attributes.beauty;
+return attributes.beauty;
 }
