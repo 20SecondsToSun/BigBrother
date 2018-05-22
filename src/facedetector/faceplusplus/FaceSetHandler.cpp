@@ -14,6 +14,7 @@ FaceSetHandler::FaceSetHandler() {
 	api_secret = "A4dY2MQMKXEJgomNBWNkBANwKGB9ssEe";
 
 	add_url = "https://api-us.faceplusplus.com/facepp/v3/faceset/addface";
+	search_url = "https://api-us.faceplusplus.com/facepp/v3/search";
 
 	parser = dynamic_cast<JsonParser<string>*>( new JsonParserFaceSet() );
 	parser_results = dynamic_cast<JsonParser<int>*>( new JsonParserUserID() );
@@ -80,7 +81,7 @@ int FaceSetHandler::Search(Face* face)
 	ofAddListener( htttpUtilsSearch.newResponseEvent, this, &FaceSetHandler::newResponseSearch );
 
 	ofxHttpForm form;
-	form.action = "https://api-us.faceplusplus.com/facepp/v3/search";
+	form.action = search_url;
 
 	form.method = HTTPRequestMethod::POST;
 	form.addFormField( "api_key", api_key );

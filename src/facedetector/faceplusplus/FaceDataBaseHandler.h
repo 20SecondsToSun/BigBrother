@@ -64,8 +64,7 @@ namespace bbrother {
 
 		std::condition_variable conditional_variable;
 		std::mutex own_mutex;
-		bool succ;
-		bool res;
+		bool success;
 		int user_id;
 	};
 }

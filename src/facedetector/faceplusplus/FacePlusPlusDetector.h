@@ -35,6 +35,7 @@ namespace bbrother
 		string API_KEY;
 		string API_SECRET;
 		string path;
+		string USERID_URL;
 
 		Face* res;
 		bool succ;

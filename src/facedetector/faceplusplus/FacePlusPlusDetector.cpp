@@ -22,6 +22,7 @@ void FacePlusPlusDetector::init( ConfigPtr config )
 	FACE_URL = FACE_PROTOCOL + "://" + FACE_HOST + "/" + FACE_METHOD;
 	API_KEY = "t1y6VUUSmxx8yLUiww5SwiigbR-CWPrr";
 	API_SECRET = "A4dY2MQMKXEJgomNBWNkBANwKGB9ssEe";
+	USERID_URL = "https://api-us.faceplusplus.com/facepp/v3/face/setuserid";
 
 	test = WaitForPhoto;
 	ofNotifyEvent( status_event, test );
@@ -45,7 +46,7 @@ void FacePlusPlusDetector::AddUserId( int id, string token ) {
 	ofAddListener( httpUtilsUserID.newResponseEvent, this, &FacePlusPlusDetector::ResponseUserId );
 
 	ofxHttpForm form;
-	form.action = "https://api-us.faceplusplus.com/facepp/v3/face/setuserid";
+	form.action = USERID_URL;
 	form.method = HTTPRequestMethod::POST;
 	form.addFormField( "api_key", API_KEY );
 	form.addFormField( "api_secret", API_SECRET );
@@ -67,7 +68,6 @@ void FacePlusPlusDetector::ResponseUserId( ofxHttpResponse & response ) {
 
 void FacePlusPlusDetector::makeRequest(const string& FACE_URL, const string& API_KEY, const string& API_SECRET, const string& filePath)
 {
-	//httpUtils.start();
 	test = Process;
 	ofNotifyEvent( status_event, test );
 
@@ -75,7 +75,6 @@ void FacePlusPlusDetector::makeRequest(const string& FACE_URL, const string& API
 
 	ofxHttpForm form;
 	form.action = FACE_URL;
-	//cout << "FACE_URL: " << FACE_URL << endl;
 	form.method = HTTPRequestMethod::POST;
 	form.addFormField("api_key", API_KEY);
 	form.addFormField("api_secret", API_SECRET);
@@ -87,18 +86,14 @@ void FacePlusPlusDetector::makeRequest(const string& FACE_URL, const string& API
 	while( res == nullptr ) {
 		conditional_variable.wait(lock);
 	}
-	//httpUtils.stop();
 }
 
 
 void FacePlusPlusDetector::newResponse( ofxHttpResponse & response)
 {
 	string response_body = response.responseBody;
-	std::cout << "newResponse" << std::endl;
 	parser->SetJsonStr(response_body );
 	res = parser->Parse();
-	//FaceSetHandler* faceSet = new FaceSetHandler();
-	//faceSet->Create();
 
 	if( res == nullptr ) {
 		test = NotDetect;
@@ -107,7 +102,6 @@ void FacePlusPlusDetector::newResponse( ofxHttpResponse & response)
 	} else {
 		test = Detect;
 		ofNotifyEvent( status_event, test );
-		//faceSet->AddFaces( res->getToken() );
 	}
 	conditional_variable.notify_one();
 }
@@ -115,5 +109,4 @@ void FacePlusPlusDetector::newResponse( ofxHttpResponse & response)
 FacePlusPlusDetector::~FacePlusPlusDetector()
 {
 	delete parser;
-	//httpUtils.stop();
 }

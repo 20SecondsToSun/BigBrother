@@ -33,6 +33,7 @@ namespace bbrother {
 		string add_url;
 		string remove_url;
 		string update_url;
+		string search_url;
 		
 		// TODO: enum
 		string display_name;

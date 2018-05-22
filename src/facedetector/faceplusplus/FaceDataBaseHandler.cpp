@@ -30,12 +30,10 @@ FaceDataBaseHandler::FaceDataBaseHandler() {
 FaceDataBaseHandler::~FaceDataBaseHandler() {
 	delete parser;
 	delete data_base_params;
-	//httpUtils.stop();
 }
 
 int FaceDataBaseHandler::CreateUser( string name, string token ) {
-	//httpUtils_create.start();
-	res = false;
+	success = false;
 	ofAddListener( httpUtils_create.newResponseEvent, this, &FaceDataBaseHandler::newResponseCreate );
 
 	ofxHttpForm form;
@@ -51,17 +49,16 @@ int FaceDataBaseHandler::CreateUser( string name, string token ) {
 	httpUtils_create.addForm( form );
 	
 	std::unique_lock<std::mutex> lock( own_mutex );
-	while( !res ) {
+	while( !success ) {
 		conditional_variable.wait( lock );
 	}
 	return user_id;
-	//httpUtils_create.stop();
 }
 
 void FaceDataBaseHandler::newResponseCreate( ofxHttpResponse& response )
 {
 	std::cout << response.responseBody << std::endl;
-	res = true;
+	success = true;
 	parser_id->SetJsonStr( (string)response.responseBody );
 	int* id = parser_id->Parse();
 	user_id = *id;
@@ -70,7 +67,7 @@ void FaceDataBaseHandler::newResponseCreate( ofxHttpResponse& response )
 }
 
 void FaceDataBaseHandler::CreateToken( int id, string token ) {
-	res = false;
+	success = false;
 	ofAddListener( httpUtils_create_token.newResponseEvent, this, &FaceDataBaseHandler::newResponseCreateToken );
 
 	ofxHttpForm form;
@@ -86,7 +83,7 @@ void FaceDataBaseHandler::CreateToken( int id, string token ) {
 	httpUtils_create_token.addForm( form );
 
 	std::unique_lock<std::mutex> lock( own_mutex );
-	while( !res ) {
+	while( !success ) {
 		conditional_variable.wait( lock );
 	}
 }
@@ -94,15 +91,14 @@ void FaceDataBaseHandler::CreateToken( int id, string token ) {
 void FaceDataBaseHandler::newResponseCreateToken( ofxHttpResponse& response )
 {
 	std::cout << response.responseBody << std::endl;
-	res = true;
+	success = true;
 	conditional_variable.notify_one();
 }
 
 
 void FaceDataBaseHandler::GetAll() {
-	//httpUtils_get_all.start();
 	ofAddListener( httpUtils_get_all.newResponseEvent, this, &FaceDataBaseHandler::newResponseGetAll);
-	succ = false;
+	success = false;
 	ofxHttpForm form;
 	form.action = get_all_url;
 	cout << "FACE_URL: " << get_all_url << endl;
@@ -114,7 +110,7 @@ void FaceDataBaseHandler::GetAll() {
 	httpUtils_get_all.addForm( form );
 
 	std::unique_lock<std::mutex> lock( own_mutex );
-	while( !succ ) {
+	while( !success ) {
 		conditional_variable.wait( lock );
 	}
 	//httpUtils_get_all.waitForThread( true );
@@ -122,15 +118,14 @@ void FaceDataBaseHandler::GetAll() {
 
 void FaceDataBaseHandler::newResponseGetAll( ofxHttpResponse& response )
 {
-	succ = true;
+	success = true;
 	std::cout << response.responseBody << std::endl;
 	conditional_variable.notify_one();
 }
 
 void FaceDataBaseHandler::GetOne(int id) {
-	//httpUtils_get_one.start();
 	ofAddListener( httpUtils_get_one.newResponseEvent, this, &FaceDataBaseHandler::newResponseGetOne );
-	succ = false;
+	success = false;
 	ofxHttpForm form;
 	form.action = get_all_url + std::to_string(id);
 	cout << "FACE_URL: " << form.action << endl;
@@ -142,22 +137,20 @@ void FaceDataBaseHandler::GetOne(int id) {
 	httpUtils_get_one.addForm( form );
 
 	std::unique_lock<std::mutex> lock( own_mutex );
-	while( !succ ) {
+	while( !success ) {
 		conditional_variable.wait( lock );
 	}
-	//httpUtils_get_one.stop();
 }
 
 void FaceDataBaseHandler::newResponseGetOne( ofxHttpResponse& response )
 {
-	succ = true;
+	success = true;
 	std::cout << response.responseBody << std::endl;
 	conditional_variable.notify_one();
 }
 
 void FaceDataBaseHandler::RemoveFace(int id) {
-	//httpUtils_delete.start();
-	succ = false;
+	success = false;
 	ofAddListener( httpUtils_delete.newResponseEvent, this, &FaceDataBaseHandler::newResponseRemove );
 
 	ofxHttpForm form;
@@ -171,7 +164,7 @@ void FaceDataBaseHandler::RemoveFace(int id) {
 	httpUtils_delete.addForm( form );
 
 	std::unique_lock<std::mutex> lock( own_mutex );
-	while( !succ ) {
+	while( !success ) {
 		conditional_variable.wait( lock );
 	}
 	//httpUtils_delete.stop();
@@ -179,7 +172,7 @@ void FaceDataBaseHandler::RemoveFace(int id) {
 
 void FaceDataBaseHandler::newResponseRemove( ofxHttpResponse& response )
 {
-	succ = true;
+	success = true;
 	std::cout << response.responseBody << std::endl;
 	conditional_variable.notify_one();
 }
