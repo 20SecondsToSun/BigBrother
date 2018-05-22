@@ -20,7 +20,7 @@ BaseCard::BaseCard(PersonPtr _person)
 	person = _person;
 	creationTime = ofGetElapsedTimef();
 
-	font.load("ofxbraitsch/fonts/Starjout.ttf", 16);
+	font.load("ofxbraitsch/fonts/Starjout.ttf", 12);
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "BaseCard init");
 }
 
@@ -32,11 +32,18 @@ void BaseCard::update()
 
 void BaseCard::draw()
 {
-	person.get()->face.resize(size.getWidth() / 2, size.getHeight() / 2);
-	person.get()->face.draw(location);
+	ofImage pic = person.get()->kinectData.body;
+	pic.resize(size.getWidth() / 2, size.getHeight() / 2);
+	pic.draw(location);
 
 	ofSetColor(255, 255, 255);
-	std::string msg = "Hi, Jackie!";
+	std::string msg;
+	if (person->faceData.is) {
+		msg = "Hi, " + person->faceData.name + "!";
+	}
+	else {
+		msg = "Hello!";
+	}
 	font.drawString(msg, location.value().x, location.value().y + size.getHeight() / 2 + 20);
 }
 

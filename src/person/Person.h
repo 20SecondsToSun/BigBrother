@@ -1,5 +1,6 @@
 #pragma once
 #include "ofMain.h"
+#include <string>
 
 namespace bbrother
 {
@@ -7,26 +8,24 @@ namespace bbrother
 
 	struct FaceData
 	{
-
+		bool is;
+		std::string name;
 	};
 
 	struct KinectData
 	{
-
+		bool is;
+		ofImage body;
 	};
 
 	class Person
 	{
 	public:
 		Person();
-		Person(int _id);
+		Person(int _id, ofImage& pic);
 		virtual ~Person();
-		int getId() {
-			return id;
-		}
 
 		int id;
-		ofImage face;
 		KinectData kinectData;
 		FaceData faceData;
 	};

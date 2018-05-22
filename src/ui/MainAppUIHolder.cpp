@@ -29,16 +29,18 @@ MainAppUIHolder::~MainAppUIHolder()
 
 }
 
-void MainAppUIHolder::onInterfaceEvent(bbrother::InterfaceEventType& Event)
+void MainAppUIHolder::onInterfaceEvent(bbrother::MyEvent& Event)
 {
-	switch (Event)
+	switch (Event.type)
 	{
 	case InterfaceEventType::NewPersonAppear:
-		screenController->newPersonAppear(PersonPtr(new Person(idadd++)));
+		screenController->newPersonAppear(Event.person);
 		break;
 
 	case InterfaceEventType::PersonRecognized:
-		screenController->personRecognized(PersonPtr(new Person(iddel++)));
+		screenController->personRecognized(Event.person);
+		break;
+	default:
 		break;
 	}
 }

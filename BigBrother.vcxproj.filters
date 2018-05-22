@@ -34,21 +34,6 @@
     <ClCompile Include="src\tools\http\ofxHttpUtils.cpp">
       <Filter>src\tools\http</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\ofxDatGui.cpp">
-      <Filter>addons\ofxDatGui-master\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\core\ofxDatGuiComponent.cpp">
-      <Filter>addons\ofxDatGui-master\src\core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxDatGui-master\src\libs\ofxSmartFont\ofxSmartFont.cpp">
-      <Filter>addons\ofxDatGui-master\src\libs\ofxSmartFont</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxJSON-master\src\ofxJSONElement.cpp">
-      <Filter>addons\ofxJSON-master\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxJSON-master\libs\jsoncpp\src\jsoncpp.cpp">
-      <Filter>addons\ofxJSON-master\libs\jsoncpp\src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ui\screens\BaseScreen.cpp">
       <Filter>src\ui\screens</Filter>
     </ClCompile>
@@ -64,18 +49,6 @@
     <ClCompile Include="src\interface\TestMainUIInterfaceLayout.cpp">
       <Filter>src\interface</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\CinderMath.cpp">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\Timeline.cpp">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\TimelineItem.cpp">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\src\cinder\Tween.cpp">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\src\cinder</Filter>
-    </ClCompile>
     <ClCompile Include="src\ui\ScreenController.cpp">
       <Filter>src\ui</Filter>
     </ClCompile>
@@ -90,6 +63,33 @@
     </ClCompile>
     <ClCompile Include="src\ui\animation\Background.cpp">
       <Filter>src\ui\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\CinderMath.cpp">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\Timeline.cpp">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\TimelineItem.cpp">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\src\cinder\Tween.cpp">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\src\cinder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxDatGui\src\ofxDatGui.cpp">
+      <Filter>addons\ofxDatGui\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiComponent.cpp">
+      <Filter>addons\ofxDatGui\src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.cpp">
+      <Filter>addons\ofxDatGui\src\libs\ofxSmartFont</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.cpp">
+      <Filter>addons\ofxJSON\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -126,72 +126,6 @@
     <Filter Include="src\tools\http">
       <UniqueIdentifier>{f321bc62-7229-47f3-afb4-828bf3cb5440}</UniqueIdentifier>
     </Filter>
-    <Filter Include="addons\ofxDatGui-master">
-      <UniqueIdentifier>{2ff857c4-09ae-4627-b16b-39b51fc95592}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxDatGui-master\src">
-      <UniqueIdentifier>{75c55f33-8b7e-4d06-b5ae-3a718a458bb3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxDatGui-master\src\components">
-      <UniqueIdentifier>{411e6334-3df5-4bc0-81ca-f7703655523a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxDatGui-master\src\core">
-      <UniqueIdentifier>{b87316c5-afb5-4cca-be66-7b447c894154}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxDatGui-master\src\libs">
-      <UniqueIdentifier>{bddfaef2-c82a-4921-bed2-ee5dcf1ea65a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxDatGui-master\src\libs\ofxSmartFont">
-      <UniqueIdentifier>{82c13cda-4255-481e-b9d7-68f368771d7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxDatGui-master\src\themes">
-      <UniqueIdentifier>{8eb2ba47-c304-4add-9e1f-fae71b0bfdb9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master">
-      <UniqueIdentifier>{0430c5a9-e94f-4446-ad56-2061b6598974}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master\src">
-      <UniqueIdentifier>{93a0e158-ac03-430c-b846-7e3225f8e2c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master\libs">
-      <UniqueIdentifier>{71015b3b-f439-403a-9da8-7bed6c255ed4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master\libs\jsoncpp">
-      <UniqueIdentifier>{f7e774d1-7dff-4858-8498-b3f4b70143c3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master\libs\jsoncpp\include">
-      <UniqueIdentifier>{31ed82ba-b7d0-4b3a-8df8-202118dda7f0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master\libs\jsoncpp\include\json">
-      <UniqueIdentifier>{d079ffb7-fa36-4326-977e-cfa4397798b1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxJSON-master\libs\jsoncpp\src">
-      <UniqueIdentifier>{a2ef1b4e-8367-4ff6-ba63-2f5251f78638}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master">
-      <UniqueIdentifier>{05004633-cba7-47fc-b861-7cad08936d0b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\src">
-      <UniqueIdentifier>{9f9acdd4-610a-4819-810b-ab15777c9f77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\libs">
-      <UniqueIdentifier>{ccea9b0b-3dae-46ec-ab45-a03a4a57d192}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder">
-      <UniqueIdentifier>{130652c7-3734-4c5b-b08e-954e13c926a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\include">
-      <UniqueIdentifier>{b483e79f-7ea2-4623-8b16-0a7b874aa548}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\include\cinder">
-      <UniqueIdentifier>{dbd6e449-a535-47ad-afce-0b45f87fec52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\src">
-      <UniqueIdentifier>{cc9e7973-c473-49a4-93c8-79998f9ec7a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCinderTimeline-master\libs\cinder\src\cinder">
-      <UniqueIdentifier>{8bc25cb7-38a3-4517-a408-b10bbd1f7545}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\ui\screens">
       <UniqueIdentifier>{f15650be-88eb-4de6-9f17-98ba5ce7cae4}</UniqueIdentifier>
     </Filter>
@@ -203,6 +137,72 @@
     </Filter>
     <Filter Include="src\ui\animation">
       <UniqueIdentifier>{bedc2f58-a3d0-4848-8772-941cd85a2cf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline">
+      <UniqueIdentifier>{b0c8178c-5027-4ef8-b9bf-3d0b2a1b2dc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\src">
+      <UniqueIdentifier>{a2135f51-7f11-4f6d-9a3a-cbf50f371b98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\libs">
+      <UniqueIdentifier>{006a060c-dd77-4bd1-97dc-7629bb3e7183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\libs\cinder">
+      <UniqueIdentifier>{07e85d39-364f-4c24-aab9-ae1f8efca1e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\libs\cinder\include">
+      <UniqueIdentifier>{58cddfd7-4448-4944-8de3-c190928291ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\libs\cinder\include\cinder">
+      <UniqueIdentifier>{61668379-604b-486a-8161-b80c925bd63d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\libs\cinder\src">
+      <UniqueIdentifier>{35b54b28-289b-4994-82b0-2d0aca48403c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCinderTimeline\libs\cinder\src\cinder">
+      <UniqueIdentifier>{6a9cd672-f9ef-4941-b375-725f994de1eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui">
+      <UniqueIdentifier>{63f26ccf-43ce-49d8-a7b4-19e936ae8f38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui\src">
+      <UniqueIdentifier>{f41c3617-e2d5-4125-92c2-6e4e52e896e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui\src\components">
+      <UniqueIdentifier>{a9f0a4e3-924a-4d5b-b3de-448e2e5259a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui\src\core">
+      <UniqueIdentifier>{a78e9b57-fd8a-432f-b884-62123432503e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui\src\libs">
+      <UniqueIdentifier>{64520120-5b44-4ceb-9f94-899f9dac370d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui\src\libs\ofxSmartFont">
+      <UniqueIdentifier>{66c8b6b7-421d-49a4-884e-58592c5402aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxDatGui\src\themes">
+      <UniqueIdentifier>{ef6d0fb6-ada9-4945-ab6b-656a1caaeeb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON">
+      <UniqueIdentifier>{7cc5ec42-ff17-4336-b264-3cfe123bb39d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\src">
+      <UniqueIdentifier>{99744c78-2248-4ced-9a1c-3d9dfafe7499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs">
+      <UniqueIdentifier>{da619c0d-8c73-48cb-9436-0ba7c099b548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp">
+      <UniqueIdentifier>{94ba35fb-76d1-4b76-aaab-597151e2d954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp\include">
+      <UniqueIdentifier>{6e162c91-a2cf-4028-8486-09d841070d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp\include\json">
+      <UniqueIdentifier>{c0463388-b26c-4499-8389-f90ffa4e63af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
+      <UniqueIdentifier>{a085816e-85e0-4315-9d84-6ed23cfd5023}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -245,81 +245,6 @@
     <ClInclude Include="src\tools\http\ofxHttpUtils.h">
       <Filter>src\tools\http</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\ofxDatGui.h">
-      <Filter>addons\ofxDatGui-master\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGui2dPad.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiButton.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiColorPicker.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiControls.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiFRM.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiGroups.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiLabel.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiMatrix.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiScrollView.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiSlider.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiTextInput.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiTextInputField.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\components\ofxDatGuiTimeGraph.h">
-      <Filter>addons\ofxDatGui-master\src\components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\core\ofxDatGuiComponent.h">
-      <Filter>addons\ofxDatGui-master\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\core\ofxDatGuiConstants.h">
-      <Filter>addons\ofxDatGui-master\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\core\ofxDatGuiEvents.h">
-      <Filter>addons\ofxDatGui-master\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\core\ofxDatGuiIntObject.h">
-      <Filter>addons\ofxDatGui-master\src\core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\libs\ofxSmartFont\ofxSmartFont.h">
-      <Filter>addons\ofxDatGui-master\src\libs\ofxSmartFont</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\themes\ofxDatGuiTheme.h">
-      <Filter>addons\ofxDatGui-master\src\themes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxDatGui-master\src\themes\ofxDatGuiThemes.h">
-      <Filter>addons\ofxDatGui-master\src\themes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxJSON-master\src\ofxJSON.h">
-      <Filter>addons\ofxJSON-master\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxJSON-master\src\ofxJSONElement.h">
-      <Filter>addons\ofxJSON-master\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxJSON-master\libs\jsoncpp\include\json\json-forwards.h">
-      <Filter>addons\ofxJSON-master\libs\jsoncpp\include\json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxJSON-master\libs\jsoncpp\include\json\json.h">
-      <Filter>addons\ofxJSON-master\libs\jsoncpp\include\json</Filter>
-    </ClInclude>
     <ClInclude Include="src\ui\screens\BaseScreen.h">
       <Filter>src\ui\screens</Filter>
     </ClInclude>
@@ -328,30 +253,6 @@
     </ClInclude>
     <ClInclude Include="src\ui\MainAppUIHolder.h">
       <Filter>src\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\src\ofxCinderTimeline.h">
-      <Filter>addons\ofxCinderTimeline-master\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Cinder.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\CinderMath.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Easing.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Function.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Timeline.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\TimelineItem.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCinderTimeline-master\libs\cinder\include\cinder\Tween.h">
-      <Filter>addons\ofxCinderTimeline-master\libs\cinder\include\cinder</Filter>
     </ClInclude>
     <ClInclude Include="src\ui\ScreenController.h">
       <Filter>src\ui</Filter>
@@ -367,6 +268,105 @@
     </ClInclude>
     <ClInclude Include="src\ui\animation\Background.h">
       <Filter>src\ui\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\src\ofxCinderTimeline.h">
+      <Filter>addons\ofxCinderTimeline\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Cinder.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\CinderMath.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Easing.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Function.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Timeline.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\TimelineItem.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCinderTimeline\libs\cinder\include\cinder\Tween.h">
+      <Filter>addons\ofxCinderTimeline\libs\cinder\include\cinder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\ofxDatGui.h">
+      <Filter>addons\ofxDatGui\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGui2dPad.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiButton.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiColorPicker.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiControls.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiFRM.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiGroups.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiLabel.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiMatrix.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiScrollView.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiSlider.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiTextInput.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiTextInputField.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\components\ofxDatGuiTimeGraph.h">
+      <Filter>addons\ofxDatGui\src\components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiComponent.h">
+      <Filter>addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiConstants.h">
+      <Filter>addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiEvents.h">
+      <Filter>addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\core\ofxDatGuiIntObject.h">
+      <Filter>addons\ofxDatGui\src\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.h">
+      <Filter>addons\ofxDatGui\src\libs\ofxSmartFont</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\themes\ofxDatGuiTheme.h">
+      <Filter>addons\ofxDatGui\src\themes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxDatGui\src\themes\ofxDatGuiThemes.h">
+      <Filter>addons\ofxDatGui\src\themes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJSON\src\ofxJSON.h">
+      <Filter>addons\ofxJSON\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJSON\src\ofxJSONElement.h">
+      <Filter>addons\ofxJSON\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxJSON\libs\jsoncpp\include\json\json.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

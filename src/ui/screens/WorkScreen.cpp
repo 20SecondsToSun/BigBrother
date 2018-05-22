@@ -8,10 +8,10 @@ WorkScreen::WorkScreen()
 	mvisTimeline->stepTo(ofGetElapsedTimef());
 
 	detectCardsContainer = BaseContainerPtr(new BaseContainer());
-	detectCardsContainer->setLocation(ofPoint(0, 0));
+	detectCardsContainer->setLocation(ofPoint(100, 200));
 
 	recognizeCardsContainer = BaseContainerPtr(new BaseContainer());
-	recognizeCardsContainer->setLocation(ofPoint(0, ofGetHeight() - 220));
+	recognizeCardsContainer->setLocation(ofPoint(100, ofGetHeight() - 300));
 
 	font.load("ofxbraitsch/fonts/Starjout.ttf", 32);
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "Work screen init");
@@ -20,22 +20,22 @@ WorkScreen::WorkScreen()
 
 void WorkScreen::show()
 {
-	ofNotifyEvent(BaseScreen::showAnimationcomplete, this);
+	//ofNotifyEvent(BaseScreen::showAnimationcomplete, this);
 	vistimeline().stepTo(ofGetElapsedTimef());
 	vistimeline().apply(&visibility, 255.0f, 1.0f, ofxCinderTimeline::EaseInOutSine()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::showAnimationcomplete, this); }));
 }
 
 void WorkScreen::hide()
 {
-	ofNotifyEvent(BaseScreen::hideAnimationcomplete, this);
+	//ofNotifyEvent(BaseScreen::hideAnimationcomplete, this);
 	vistimeline().stepTo(ofGetElapsedTimef());
 	vistimeline().apply(&visibility, 0.0f, 1.0f, ofxCinderTimeline::EaseInOutSine()).finishFn(std::bind([this]() {ofNotifyEvent(BaseScreen::hideAnimationcomplete, this); }));
 }
 
 void WorkScreen::update()
 {
-	detectCardsContainer->setLocation(ofPoint(0, 0));
-	recognizeCardsContainer->setLocation(ofPoint(0, ofGetHeight() - 320));
+	detectCardsContainer->setLocation(ofPoint(100, 150));
+	recognizeCardsContainer->setLocation(ofPoint(100, ofGetHeight() - 350));
 
 	detectCardsContainer->update();
 	recognizeCardsContainer->update();

@@ -1,4 +1,5 @@
 #pragma once
+#include "../person/Person.h"
 #include "ofMain.h"
 #include "ofxDatGui.h"
 
@@ -15,6 +16,16 @@ namespace bbrother
 		PersonRecognized,
 	};
 
+	struct MyEvent {
+		MyEvent(InterfaceEventType _type, PersonPtr _person = nullptr) {
+			type = _type;
+			person = _person;
+		}
+
+		InterfaceEventType type;
+		PersonPtr person;
+	};
+
 	typedef ofPtr<class TestInterfaceLayout> TestInterfaceLayoutPtr;
 
 	class TestInterfaceLayout
@@ -22,7 +33,7 @@ namespace bbrother
 	public:
 		TestInterfaceLayout();
 
-		ofEvent<InterfaceEventType> InterfaceEvent;
+		ofEvent<MyEvent> InterfaceEvent;
 
 		virtual void update();
 		virtual void draw();

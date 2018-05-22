@@ -26,7 +26,6 @@ void BaseContainer::update()
 		num++;
 	}
 
-	//обновляем карточки
 	for (auto i = cards.begin(); i != cards.end(); i++) {
 		i->get()->update();
 	}
@@ -65,7 +64,7 @@ void BaseContainer::addCard(BaseCardPtr card)
 void BaseContainer::removeCard(BaseCardPtr card)
 {
 	for (auto i = cards.begin(); i != cards.end();) {
-		if (i->get()->getPerson()->getId() == card->getPerson()->getId()) {
+		if (i->get()->getPerson()->id == card->getPerson()->id) {
 			cards.erase(i);
 			i = cards.begin();
 		}

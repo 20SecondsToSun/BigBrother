@@ -12,7 +12,6 @@ ScreenController::ScreenController()
 	screens.insert(std::pair< ScreenState, WaitScreenPtr> (ScreenState::Wait, WaitScreenPtr(new WaitScreen())));
 	screens.insert(std::pair< ScreenState, WorkScreenPtr>(ScreenState::Work, WorkScreenPtr(new WorkScreen())));
 	currentScreen = screens.find(ScreenState::Wait)->second;
-
 	ofLog(ofLogLevel::OF_LOG_NOTICE, "ScreenController init");
 };
 
@@ -59,13 +58,15 @@ void ScreenController::setCurrentState(ScreenState state) {
 
 
 void ScreenController::toWorkScreen() {
-	currentScreen->hide();
-	ofAddListener(currentScreen->hideAnimationcomplete, this, &ScreenController::setWorkScreen);
+	//currentScreen->hide();
+	//ofAddListener(currentScreen->hideAnimationcomplete, this, &ScreenController::setWorkScreen);
+	ScreenController::setWorkScreen();
 }
 
 void ScreenController::toWaitScreen() {
-	currentScreen->hide();
-	ofAddListener(currentScreen->hideAnimationcomplete, this, &ScreenController::setWaitScreen);
+	//currentScreen->hide();
+	//ofAddListener(currentScreen->hideAnimationcomplete, this, &ScreenController::setWaitScreen);
+	ScreenController::setWaitScreen();
 }
 
 
@@ -76,6 +77,16 @@ void ScreenController::setWaitScreen() {
 
 void ScreenController::setWorkScreen() {
 	setCurrentState(ScreenState::Work);
+	currentScreen->show();
+}
+
+void ScreenController::changeScreen() {
+	if (currentState == ScreenState::Wait) {
+		setCurrentState(ScreenState::Work);
+	}
+	else {
+		setCurrentState(ScreenState::Wait);
+	}
 	currentScreen->show();
 }
 

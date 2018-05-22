@@ -36,6 +36,7 @@ namespace bbrother
 
 		void toWaitScreen();
 		void toWorkScreen();
+		void changeScreen();
 
 		virtual ~ScreenController();
 

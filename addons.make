@@ -1,3 +1,3 @@
-ofxCinderTimeline-master
-ofxDatGui-master
-ofxJSON-master
+ofxCinderTimeline
+ofxDatGui
+ofxJSON

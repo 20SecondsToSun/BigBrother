@@ -39,13 +39,13 @@ void TestKinectInterfaceLayout::draw()
 void TestKinectInterfaceLayout::kinectStartButtonClicked(ofxDatGuiButtonEvent event)
 {
 	auto type = InterfaceEventType::TrackingStart;
-	ofNotifyEvent(InterfaceEvent, type);
+	//ofNotifyEvent(InterfaceEvent, type);
 }
 
 void TestKinectInterfaceLayout::kinectStopButtonClicked(ofxDatGuiButtonEvent event)
 {
 	auto type = InterfaceEventType::TrackingStop;
-	ofNotifyEvent(InterfaceEvent, type);
+	//ofNotifyEvent(InterfaceEvent, type);
 }
 
 void TestKinectInterfaceLayout::kinectShowFramesButtonClicked(ofxDatGuiButtonEvent event)

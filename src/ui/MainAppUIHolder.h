@@ -18,7 +18,7 @@ namespace bbrother
 
 		virtual ~MainAppUIHolder();
 
-		void onInterfaceEvent(InterfaceEventType& Event);
+		void onInterfaceEvent(MyEvent& Event);
 
 	private:
 		BackgroundPtr background;

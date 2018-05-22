@@ -1,4 +1,5 @@
 #include "TestMainUIInterfaceLayout.h"
+#include <random>
 
 using namespace bbrother;
 
@@ -20,6 +21,7 @@ TestMainUIInterfaceLayout::TestMainUIInterfaceLayout()
 
 	//default align
 	setPosition(ofPoint(100, 40));
+	std::srand(0);
 }
 
 void TestMainUIInterfaceLayout::update()
@@ -34,20 +36,58 @@ void TestMainUIInterfaceLayout::draw()
 
 void TestMainUIInterfaceLayout::screen1ButtonClicked(ofxDatGuiButtonEvent event)
 {
-	auto type = InterfaceEventType::NewPersonAppear;
-	ofNotifyEvent(InterfaceEvent, type);
+	int a = std::rand();
+	ofImage pic;
+	std::string name;
+	switch (a%6) {
+	case 0:
+		pic.load("images/photo0.jpg");
+		name = "";
+		break;
+	case 1:
+		pic.load("images/photo1.jpg");
+		name = "";
+		break;
+	case 2:
+		pic.load("images/photo2.jpg");
+		name = "";
+		break;
+	case 3:
+		pic.load("images/photo3.jpg");
+		name = "";
+		break;
+	case 4:
+		pic.load("images/photo4.jpg");
+		name = "";
+		break;
+	case 5:
+		pic.load("images/photo5.jpg");
+		name = "";
+	case 6:
+		pic.load("images/photo6.jpg");
+		name = "";
+		break;
+	default:
+		break;
+	}
+	PersonPtr newPer(new Person(a, pic));
+	newPer->faceData.name = name;
+
+	MyEvent myevent(InterfaceEventType::NewPersonAppear, newPer);
+
+	ofNotifyEvent(InterfaceEvent, myevent);
 }
 
 void TestMainUIInterfaceLayout::screen2ButtonClicked(ofxDatGuiButtonEvent event)
 {
 	auto type = InterfaceEventType::PersonRecognized;
-	ofNotifyEvent(InterfaceEvent, type);
+	//ofNotifyEvent(InterfaceEvent, type);
 }
 
 void TestMainUIInterfaceLayout::screen3ButtonClicked(ofxDatGuiButtonEvent event)
 {
 	auto type = InterfaceEventType::NewPersonAppear;
-	ofNotifyEvent(InterfaceEvent, type);
+	//ofNotifyEvent(InterfaceEvent, type);
 }
 
 TestMainUIInterfaceLayout::~TestMainUIInterfaceLayout()
